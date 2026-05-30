@@ -1055,6 +1055,382 @@ Go to emergency dentist or ER if: severe swelling in face or jaw, difficulty swa
 5. Sleep on a medium-firm mattress. Try lying on your side with a pillow between knees.
 6. Avoid lifting heavy objects — if you must lift, bend at the knees not the waist.
 Seek medical care if: pain follows an injury, numbness or tingling in legs, weakness in legs, pain is severe and not improving after a few weeks, or loss of bladder/bowel control (go to ER immediately — this is a medical emergency).`
+  },
+  // ─── PEDIATRIC EMERGENCIES ───────────────────────────────────────
+  {
+    id: "pediatric-001",
+    topic: "Febrile seizure in children",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/febrile-seizures/",
+    keywords: ["febrile seizure", "fever seizure", "child convulsion", "baby seizure", "seizure with fever", "fit with temperature"],
+    content: `For a febrile seizure (seizure caused by fever in children):
+Signs: child suddenly loses consciousness, body stiffens, limbs twitch or jerk, may go blue around mouth.
+1. Stay calm — febrile seizures are frightening but rarely dangerous.
+2. Note the time the seizure starts.
+3. Protect child from injury — clear hard objects, cushion head gently.
+4. Do NOT restrain the child or put anything in their mouth.
+5. Place child in recovery position after jerking stops.
+6. Cool the child gently after seizure — remove excess clothing.
+Call 999/911 if: seizure lasts more than 5 minutes, child does not recover fully, another seizure follows, child is under 18 months, or you are unsure.
+Most febrile seizures stop within 2-3 minutes and cause no lasting harm. Always see a doctor after a first febrile seizure.`
+  },
+  {
+    id: "pediatric-002",
+    topic: "Croup in children",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/croup/",
+    keywords: ["croup", "barking cough", "stridor", "child breathing noise", "seal cough", "harsh cough child"],
+    content: `For croup (viral infection causing barking cough in children):
+Signs: distinctive barking cough (like a seal), hoarse voice, high-pitched breathing sound (stridor), usually worse at night.
+Mild croup at home:
+1. Stay calm and comfort the child — anxiety worsens breathing difficulty.
+2. Sit child upright on your lap.
+3. Cool night air can help — briefly take child outside or open a window.
+4. Do NOT put child in a steamy bathroom — no longer recommended.
+5. Give paracetamol or ibuprofen for fever and discomfort.
+6. Keep child hydrated.
+Call 999/911 immediately if: child is struggling to breathe, skin sucking in at throat or chest with each breath, lips or fingernails turn blue, child is drooling and cannot swallow, or child is unusually quiet and still.`
+  },
+  {
+    id: "pediatric-003",
+    topic: "Meningitis symptoms in children",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/meningitis/",
+    keywords: ["meningitis", "meningitis child", "meningitis rash", "stiff neck child", "glass test rash", "purple rash child"],
+    content: `EMERGENCY — Meningitis signs in children:
+Early signs: fever, headache, vomiting, muscle pain, cold hands and feet, pale or mottled skin.
+Later signs (very serious): stiff neck, sensitivity to light, seizures, confusion, purple/red rash that does NOT fade when a glass is pressed against it.
+Glass test: press a clear glass firmly against the rash — if it does NOT fade, call 999/911 immediately.
+1. Call 999/911 immediately if you suspect meningitis — do not wait for all symptoms.
+2. Do NOT wait for a rash — not everyone gets one.
+3. Keep child comfortable and monitor breathing.
+4. Reassure child and stay with them.
+Meningitis can kill within hours — early treatment is critical. Trust your instincts if your child seems seriously ill.`
+  },
+
+  // ─── MENTAL HEALTH EMERGENCIES ───────────────────────────────────
+  {
+    id: "mental-001",
+    topic: "Suicide risk and mental health crisis",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/behaviours/help-for-suicidal-thoughts/",
+    keywords: ["suicide", "suicidal", "self harm", "mental health crisis", "wants to die", "hurting themselves", "crisis"],
+    content: `For someone expressing suicidal thoughts or in mental health crisis:
+1. Take all mentions of suicide seriously — never dismiss or minimize.
+2. Stay with the person — do not leave them alone.
+3. Listen without judgment — let them talk.
+4. Ask directly: "Are you thinking about suicide?" — asking does not plant the idea.
+5. Remove access to means if safely possible (medications, sharp objects).
+6. Call a crisis line together: 988 Suicide and Crisis Lifeline (US) — call or text 988.
+7. In the UK: Samaritans 116 123 (free, 24/7).
+8. Call 999/911 if person is in immediate danger or has harmed themselves.
+9. Do NOT promise to keep it secret.
+10. After the crisis: help them connect with professional mental health support.
+You do not need to have all the answers — your presence and willingness to listen matters most.`
+  },
+  {
+    id: "mental-002",
+    topic: "Self harm first aid",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/mental-health/feelings-symptoms-behaviours/behaviours/self-harm/",
+    keywords: ["self harm", "self injury", "cutting", "self inflicted wound", "hurting oneself"],
+    content: `For someone who has self-harmed:
+Immediate physical care:
+1. Stay calm — do not react with shock or anger.
+2. Treat any wounds: clean with water, apply pressure to stop bleeding, cover with bandage.
+3. Call 999/911 if: bleeding is severe, wound is deep, or person has taken an overdose.
+Emotional support:
+1. Listen without judgment.
+2. Do not demand explanations or make them feel ashamed.
+3. Do not promise secrecy — safety comes first.
+4. Encourage them to speak with a doctor or mental health professional.
+5. Crisis line: 988 (US) or Samaritans 116 123 (UK).
+Self harm is often a coping mechanism for emotional pain — the person needs support, not judgment. Your calm response makes a significant difference.`
+  },
+
+  // ─── SKIN & WOUND INFECTIONS ─────────────────────────────────────
+  {
+    id: "skin-001",
+    topic: "Infected wound",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/wounds/",
+    keywords: ["infected wound", "wound infection", "infected cut", "pus wound", "red swollen wound", "wound not healing"],
+    content: `Signs of an infected wound: increasing redness, warmth, swelling, pain, pus or discharge, red streaks spreading from wound, fever.
+For a mildly infected wound:
+1. Clean gently with mild soap and water.
+2. Apply antiseptic cream.
+3. Cover with a fresh clean bandage.
+4. Change dressing daily.
+5. Monitor closely for worsening.
+Seek medical care if: pus is present, red streaks spreading from wound (serious sign), fever develops, wound doesn't improve in 2 days, or person is diabetic or immunocompromised.
+Call 999/911 if: red streaks spreading rapidly up the limb, high fever with confusion — this may indicate sepsis which is life-threatening.`
+  },
+  {
+    id: "skin-002",
+    topic: "Severe allergic rash and hives",
+    source: "Mayo Clinic",
+    sourceUrl: "https://www.mayoclinic.org/diseases-conditions/hives-and-angioedema/symptoms-causes/syc-20354816",
+    keywords: ["hives", "urticaria", "allergic rash", "itchy bumps", "welts skin", "rash allergy", "swollen skin"],
+    content: `For hives and allergic rash (without anaphylaxis):
+Signs: raised itchy welts on skin, redness, swelling, may appear anywhere on body.
+1. Identify and remove the trigger if known (food, medication, insect sting).
+2. Take an antihistamine (Benadryl/cetirizine) to reduce itching and swelling.
+3. Apply a cool damp cloth or ice pack wrapped in cloth to affected area.
+4. Wear loose comfortable clothing.
+5. Avoid scratching — can worsen and cause infection.
+6. Take a cool (not hot) bath or shower.
+7. Calamine lotion can soothe itching.
+Call 911 immediately if hives are accompanied by: throat swelling, difficulty breathing, dizziness, or rapid heartbeat — this indicates anaphylaxis, a medical emergency.
+See a doctor if hives last more than 2 days or keep recurring.`
+  },
+  {
+    id: "skin-003",
+    topic: "Severe sunburn and sun poisoning",
+    source: "Mayo Clinic",
+    sourceUrl: "https://www.mayoclinic.org/diseases-conditions/sunburn/symptoms-causes/syc-20355922",
+    keywords: ["sun poisoning", "severe sunburn", "sunstroke rash", "blistering sunburn", "nausea sunburn"],
+    content: `For severe sunburn or sun poisoning:
+Signs: severe blistering, fever, chills, nausea, vomiting, headache, dizziness, dehydration, rash.
+1. Get out of sun immediately into a cool environment.
+2. Cool skin with cool (not cold) water or damp cloths.
+3. Drink plenty of water and electrolyte drinks to rehydrate.
+4. Take ibuprofen to reduce inflammation and pain.
+5. Apply aloe vera or fragrance-free moisturizer — avoid petroleum jelly initially.
+6. Do NOT pop blisters.
+7. Cover blistered areas loosely with non-stick bandage.
+Seek medical care if: fever above 39°C/102°F, severe blistering over large area, confusion, or signs of severe dehydration. Severe sun poisoning may require IV fluids.`
+  },
+
+  // ─── RESPIRATORY ─────────────────────────────────────────────────
+  {
+    id: "respiratory-001",
+    topic: "Pneumonia symptoms and first aid",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/pneumonia/",
+    keywords: ["pneumonia", "lung infection", "chest infection", "breathing difficulty fever", "cough fever chest pain"],
+    content: `Pneumonia signs: persistent cough with yellow/green/blood-tinged mucus, fever, chills, rapid or difficult breathing, chest pain when breathing, fatigue, confusion (especially in elderly).
+Pneumonia requires medical treatment — antibiotics for bacterial pneumonia.
+First aid steps while seeking care:
+1. Call a doctor or go to urgent care — do not manage pneumonia at home without medical assessment.
+2. Help person rest in a comfortable semi-upright position.
+3. Encourage fluid intake to prevent dehydration.
+4. Give paracetamol or ibuprofen for fever and chest pain.
+5. Use a humidifier to ease breathing.
+Call 999/911 immediately if: severe difficulty breathing, lips or fingernails turning blue, confusion, rapid deterioration, or person cannot complete sentences due to breathlessness.`
+  },
+  {
+    id: "respiratory-002",
+    topic: "Bronchitis",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/bronchitis/",
+    keywords: ["bronchitis", "chest cough", "persistent cough", "bronchial infection", "coughing up mucus", "chesty cough"],
+    content: `For bronchitis (inflammation of the airways):
+Signs: persistent cough with mucus (clear, white, yellow, or green), chest tightness, wheezing, fatigue, mild fever, sore throat.
+Acute bronchitis usually resolves in 2-3 weeks:
+1. Rest and stay hydrated — drink plenty of warm fluids.
+2. Take paracetamol or ibuprofen for fever and discomfort.
+3. Honey in warm water soothes the throat and cough.
+4. Use a humidifier or steam to ease breathing.
+5. Avoid smoking and secondhand smoke completely.
+6. Cough suppressants can help at night for sleep.
+Do NOT demand antibiotics — acute bronchitis is almost always viral, antibiotics don't help.
+See a doctor if: symptoms worsen after 3 weeks, coughing up blood, breathing becomes difficult, fever above 38°C, or you have underlying lung disease.`
+  },
+
+  // ─── URINARY & ABDOMINAL ─────────────────────────────────────────
+  {
+    id: "urinary-001",
+    topic: "Urinary tract infection (UTI)",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/urinary-tract-infections-utis/",
+    keywords: ["uti", "urinary tract infection", "bladder infection", "burning urination", "frequent urination", "pain urinating"],
+    content: `For urinary tract infection (UTI):
+Signs: burning or pain when urinating, frequent urge to urinate, cloudy or strong-smelling urine, lower abdominal pain, fever (if infection has spread to kidneys).
+Home management for mild UTI:
+1. Drink plenty of water to flush bacteria — at least 6-8 glasses a day.
+2. Take paracetamol or ibuprofen for pain.
+3. Apply a warm heat pad to lower abdomen.
+4. Avoid caffeine, alcohol, and spicy foods which irritate the bladder.
+5. Urinate frequently — don't hold it.
+See a doctor promptly — UTIs usually need antibiotics.
+Go to ER immediately if: high fever with chills, severe back or side pain (kidney area), nausea and vomiting with fever — these suggest a kidney infection which is serious.`
+  },
+  {
+    id: "urinary-002",
+    topic: "Kidney stone pain",
+    source: "Mayo Clinic",
+    sourceUrl: "https://www.mayoclinic.org/diseases-conditions/kidney-stones/symptoms-causes/syc-20355755",
+    keywords: ["kidney stone", "kidney pain", "flank pain", "severe back pain", "pain urinating blood", "renal colic"],
+    content: `For kidney stone pain (renal colic):
+Signs: severe cramping pain in back, side, or lower abdomen that comes in waves, pain radiating to groin, nausea, vomiting, blood in urine, frequent urination, fever.
+1. Call a doctor — severe kidney stone pain usually needs medical evaluation.
+2. Take ibuprofen or naproxen — NSAIDs are particularly effective for kidney stone pain.
+3. Apply heat to the back or side where pain is.
+4. Drink plenty of water to help pass the stone.
+5. Strain urine to catch the stone if possible (for analysis).
+Go to ER immediately if: fever with pain (sign of infection), unable to control pain, vomiting preventing fluid intake, or only have one kidney.
+Most small stones pass on their own within days to weeks.`
+  },
+  {
+    id: "abdominal-001",
+    topic: "Appendicitis symptoms",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/appendicitis/",
+    keywords: ["appendicitis", "appendix pain", "right side stomach pain", "lower right abdominal pain", "appendix"],
+    content: `EMERGENCY — Signs of appendicitis:
+Symptoms: pain that starts around the navel then moves to lower right abdomen, pain worsens with movement, nausea, vomiting, loss of appetite, mild fever, rigid abdomen.
+1. Call 999/911 or go to ER immediately — appendicitis requires surgery.
+2. Do NOT eat or drink anything — surgery may be needed.
+3. Do NOT apply heat to the abdomen — can worsen inflammation.
+4. Do NOT take laxatives.
+5. Keep person as still and comfortable as possible.
+6. Note when symptoms started — tell medical staff.
+A burst appendix is life-threatening. If pain suddenly improves then returns worse, this may mean the appendix has burst — call 911 immediately.`
+  },
+
+  // ─── WORKPLACE & SPORTS INJURIES ─────────────────────────────────
+  {
+    id: "sports-001",
+    topic: "Muscle cramp",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/leg-cramps/",
+    keywords: ["cramp", "muscle cramp", "leg cramp", "calf cramp", "charlie horse", "muscle spasm"],
+    content: `For muscle cramp:
+1. Stop activity immediately.
+2. Gently stretch and massage the cramped muscle.
+3. For calf cramp: straighten the leg and flex the foot upward toward you, pulling toes toward shin.
+4. For thigh cramp: straighten leg and pull foot toward buttock.
+5. Apply a heat pad or warm towel to relax the muscle.
+6. After cramp passes, apply ice if sore.
+7. Drink water or sports drink — dehydration and electrolyte loss are common causes.
+8. Gentle walking helps after the cramp passes.
+Prevention: stay hydrated, stretch before and after exercise, warm up properly.
+See a doctor if: cramps are frequent, severe, last a long time, or occur at rest — may indicate circulation problems or nutritional deficiency.`
+  },
+  {
+    id: "sports-002",
+    topic: "Shin splints",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/shin-splints/",
+    keywords: ["shin splints", "shin pain", "lower leg pain", "running pain shin", "medial tibial stress"],
+    content: `For shin splints (pain along the shin bone):
+Signs: aching, throbbing, or tenderness along the inner shin, pain during and after exercise, mild swelling.
+1. Rest — stop the activity causing pain.
+2. Apply ice pack wrapped in cloth for 20 minutes several times a day.
+3. Take ibuprofen to reduce pain and inflammation.
+4. Elevate the leg when resting.
+5. Wear supportive footwear.
+6. Gradually return to activity — do NOT push through the pain.
+7. Stretch calves and shins before and after exercise.
+See a doctor if: pain is severe, doesn't improve with rest after 2 weeks, or pain occurs at rest — stress fracture needs to be ruled out.`
+  },
+  {
+    id: "workplace-001",
+    topic: "Chemical splash to skin or eyes",
+    source: "Red Cross",
+    sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/poisoning",
+    keywords: ["chemical splash", "acid on skin", "chemical in eye", "industrial chemical", "workplace chemical injury"],
+    content: `For a chemical splash at work or home:
+To skin:
+1. Remove contaminated clothing immediately — protect your own hands.
+2. Flush affected skin with large amounts of cool running water for at least 20 minutes.
+3. Do NOT use neutralizing agents (vinegar, baking soda).
+4. Cover with clean loose bandage after flushing.
+5. Call Poison Control: 1-800-222-1222.
+To eyes:
+1. Flush eye immediately with cool water for 20 minutes — hold eye open under gentle stream.
+2. Remove contact lenses if present and easily removable.
+3. Do NOT rub the eye.
+4. Call 911 and Poison Control simultaneously.
+5. Go to ER after flushing.
+For all chemical exposures: bring the chemical container or note the name for medical staff.`
+  },
+  {
+    id: "workplace-002",
+    topic: "Crush injury",
+    source: "Red Cross",
+    sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid",
+    keywords: ["crush injury", "trapped limb", "crushed hand", "crushed foot", "heavy object injury", "pinned"],
+    content: `For a crush injury:
+1. Call 911 immediately.
+2. If safe to do so, remove the crushing object quickly for short compressions.
+3. WARNING: for prolonged crush (more than 15 minutes) — do NOT remove the object without medical guidance. Sudden release can cause life-threatening cardiac arrest from toxins released.
+4. Control any bleeding with direct pressure.
+5. Keep person still and warm.
+6. Monitor for shock: pale/cold skin, rapid weak pulse, confusion.
+7. Do NOT give food or water.
+8. Reassure person and keep them calm until help arrives.
+Crush syndrome can cause kidney failure after release — all significant crush injuries need hospital evaluation even if person seems okay.`
+  },
+
+  // ─── DENTAL ──────────────────────────────────────────────────────
+  {
+    id: "dental-001",
+    topic: "Broken or chipped tooth",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/chipped-broken-or-cracked-tooth/",
+    keywords: ["broken tooth", "chipped tooth", "cracked tooth", "fractured tooth", "tooth broke"],
+    content: `For a broken or chipped tooth:
+1. Rinse mouth gently with warm water.
+2. Apply pressure with gauze if bleeding from gum.
+3. Apply cold compress to cheek to reduce swelling.
+4. Save any broken pieces in milk or saliva.
+5. Take paracetamol or ibuprofen for pain.
+6. Avoid very hot, cold, or sweet foods.
+7. Cover sharp edges with dental wax or sugar-free gum temporarily.
+See a dentist as soon as possible — within 24 hours for significant breaks.
+Go to ER if: tooth is completely knocked out (see knocked out tooth entry), severe pain, significant bleeding, or signs of infection (swelling, fever).`
+  },
+  {
+    id: "dental-002",
+    topic: "Dental abscess",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/dental-abscess/",
+    keywords: ["dental abscess", "tooth abscess", "abscess tooth", "swollen jaw", "tooth infection swelling", "face swelling tooth"],
+    content: `URGENT — Dental abscess (tooth infection):
+Signs: severe throbbing toothache, swelling in face or jaw, red swollen gums, bad taste or smell in mouth, fever, difficulty opening mouth or swallowing.
+1. See a dentist urgently — dental abscesses need antibiotics and drainage.
+2. Take paracetamol and ibuprofen alternately for pain relief.
+3. Rinse with warm salt water to draw out pus and reduce bacteria.
+4. Apply cold compress to outside of cheek.
+5. Do NOT apply heat — can spread infection.
+6. Do NOT try to pop or squeeze the abscess.
+Go to ER immediately if: swelling is spreading to eye or neck, difficulty breathing or swallowing, high fever with confusion — dental infections can spread to the airway and become life-threatening.`
+  },
+
+  // ─── PREGNANCY ───────────────────────────────────────────────────
+  {
+    id: "pregnancy-001",
+    topic: "Miscarriage signs and first aid",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/miscarriage/",
+    keywords: ["miscarriage", "pregnancy bleeding", "pregnancy loss", "bleeding pregnancy", "cramping pregnancy"],
+    content: `For suspected miscarriage:
+Signs: vaginal bleeding during pregnancy, cramping or pain in lower abdomen or back, fluid or tissue passing from vagina.
+1. Call a doctor or go to ER immediately — all pregnancy bleeding needs medical evaluation.
+2. Keep person calm and lying down.
+3. Note how much bleeding is occurring.
+4. Save any passed tissue in a clean container for medical staff.
+5. Do NOT insert anything into the vagina.
+6. Provide emotional support — this is a deeply distressing experience.
+Call 999/911 immediately if: heavy bleeding (soaking more than a pad per hour), severe abdominal pain, signs of shock, or suspected ectopic pregnancy (pain on one side, shoulder tip pain, dizziness).
+Ectopic pregnancy is life-threatening — seek emergency care without delay.`
+  },
+  {
+    id: "pregnancy-002",
+    topic: "Preeclampsia and pregnancy emergency",
+    source: "NHS",
+    sourceUrl: "https://www.nhs.uk/conditions/pre-eclampsia/",
+    keywords: ["preeclampsia", "pre eclampsia", "pregnancy high blood pressure", "pregnancy headache", "swollen feet pregnancy", "pregnancy emergency"],
+    content: `EMERGENCY — Preeclampsia during pregnancy:
+Signs: severe headache, vision changes (blurred/flashing lights), sudden severe swelling of face/hands/feet, upper abdominal pain, feeling very unwell after 20 weeks of pregnancy.
+1. Call 999/911 immediately — preeclampsia can be life-threatening for mother and baby.
+2. Have woman lie on her left side.
+3. Keep her calm and still.
+4. Do NOT give aspirin or ibuprofen without medical guidance.
+5. Note any seizures — seizure with preeclampsia is called eclampsia, a medical emergency.
+6. Be ready to perform CPR if she loses consciousness.
+Preeclampsia requires immediate hospital treatment — do not wait to see if symptoms improve.`
   }
 ]
 
