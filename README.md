@@ -63,7 +63,9 @@ User Question
 ▼
 Answer + Source Citations + Emergency Flag → UI
 
+
 ---
+'''
 
 ## 🛠️ Tech Stack
 
@@ -176,6 +178,7 @@ firstaid-rag/
 └── .env.local                  ← API keys (never committed)
 
 ---
+'''
 
 ## 🔑 Key Technical Decisions
 
