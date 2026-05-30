@@ -72,3 +72,17 @@ npm run dev
 ---
 
 ## Architecture
+User Question
+↓
+Cohere Embeddings (semantic vector)
+↓
+Pinecone Vector Search (top 3 matches)
+↓
+Retrieved Medical Context
+↓
+Groq LLM (Llama 3.3 70B)
+↓
+Sourced Answer + Citations
+---
+
+*This is a first aid guidance tool only. Always call 911 for medical emergencies.*
