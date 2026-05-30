@@ -63,9 +63,9 @@ User Question
 ▼
 Answer + Source Citations + Emergency Flag → UI
 
-
+```
 ---
-'''
+
 
 ## 🛠️ Tech Stack
 
@@ -176,9 +176,8 @@ firstaid-rag/
 ├── scripts/
 │   └── uploadData.mjs          ← one-time data upload script
 └── .env.local                  ← API keys (never committed)
-
+```
 ---
-'''
 
 ## 🔑 Key Technical Decisions
 
