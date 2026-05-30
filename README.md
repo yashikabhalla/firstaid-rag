@@ -34,6 +34,7 @@ If a topic isn't in the database, it honestly says so instead of making somethin
 ---
 
 ## 🏗️ RAG Pipeline
+```markdown
 User Question
 │
 ▼
@@ -151,6 +152,7 @@ Open [http://localhost:3000](http://localhost:3000)
 ---
 
 ## 📁 Project Structure
+```text
 firstaid-rag/
 ├── app/
 │   ├── api/
