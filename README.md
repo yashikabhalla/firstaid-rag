@@ -1,6 +1,6 @@
 # 🏥 FirstAid RAG Assistant
 
-> An AI-powered first aid chatbot that retrieves verified medical information before generating answers — eliminating hallucinations through RAG (Retrieval-Augmented Generation).
+> An AI-powered first aid chatbot that retrieves verified medical information before generating answers — reducing hallucinations through RAG (Retrieval-Augmented Generation).
 
 🔗 **Live Demo:** https://firstaid-rag-ten.vercel.app  
 📁 **GitHub:** https://github.com/yashikabhalla/firstaid-rag
@@ -16,9 +16,9 @@ Most AI chatbots answer medical questions from training memory and can **halluci
 2. Searching a verified medical database in Pinecone
 3. Retrieving the actual Red Cross / Mayo Clinic / NHS protocol
 4. Giving that retrieved content to Groq as context
-5. Generating a sourced, accurate answer — not a guess
+5. Generating a sourced answer grounded in the retrieved medical information
 
-If a topic isn't in the database, it honestly says so instead of making something up.
+If no relevant information is retrieved, the assistant indicates that the database does not contain specific guidance and recommends professional medical help.
 
 ---
 
@@ -26,7 +26,7 @@ If a topic isn't in the database, it honestly says so instead of making somethin
 
 - 🔍 **RAG Architecture** — retrieves real medical data before generating, not a ChatGPT wrapper
 - 📋 **Source Citations** — every answer shows which organization it came from with a clickable link
-- 🚨 **Emergency Detection** — detects life-threatening queries and shows urgent 911 alert
+- 🚨 **Emergency Detection** — identifies critical conditions using predefined emergency keywords and triggers an urgent 911 alert
 - 🧠 **Semantic Search** — understands meaning, not just keywords (powered by Cohere embeddings)
 - 📚 **80+ Medical Topics** — 84 entries across 16 categories from verified sources
 - 💰 **$0 Cost** — entire stack runs on free tiers
@@ -56,8 +56,8 @@ User Question
 │
 ▼
 ┌─────────────────┐
-│  Groq LLM       │  generates answer using ONLY retrieved content
-│  Llama 3.3 70B  │  temperature: 0.3 for factual responses
+│  Groq LLM       │  generates answer using retrieved medical context
+│  GPT-OSS-120B   │  temperature: 0.3 for consistent responses
 └────────┬────────┘
 │
 ▼
@@ -72,7 +72,7 @@ Answer + Source Citations + Emergency Flag → UI
 | Layer | Technology | Purpose |
 |-------|-----------|---------|
 | Frontend | Next.js 14, React, Tailwind CSS | Chat UI, routing, styling |
-| AI Inference | Groq (Llama 3.3 70B) | Fast, free LLM generation |
+| AI Inference | Groq (GPT-OSS-120B) | Fast LLM inference |
 | Embeddings | Cohere embed-english-v3.0 | Semantic text → vector conversion |
 | Vector DB | Pinecone (1024 dimensions, cosine) | Similarity search across medical entries |
 | Deployment | Vercel | Auto-deploy from GitHub, free hosting |
@@ -187,8 +187,8 @@ Fine-tuning is expensive and the model still can't cite sources. RAG is cheaper,
 **Why Cohere for embeddings?**
 Cohere's `embed-english-v3.0` produces high-quality 1024-dimension semantic vectors. Unlike keyword search, it understands that "loosemotion" means diarrhea, "cardiac arrest" means CPR needed, etc.
 
-**Why Groq instead of OpenAI?**
-Groq runs Llama 3.3 70B at ~500 tokens/second for free. OpenAI charges per token and is slower for this use case.
+**Why Groq?**
+Groq provides fast inference for open-source LLMs, making it suitable for low-latency response generation in this application.
 
 **Why Pinecone?**
 Purpose-built vector database with cosine similarity search. A regular SQL database can't do semantic similarity search across 1024-dimension vectors efficiently.
@@ -217,7 +217,7 @@ This application provides first aid **guidance only** based on publicly availabl
 
 ## 👩‍💻 Built By
 
-**Yashika Bhalla** — 3rd year Computer Engineering student  
+**Yashika Bhalla** — 4th year Computer Engineering student  
 
 ---
 
