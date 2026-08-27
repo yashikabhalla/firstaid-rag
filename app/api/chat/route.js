@@ -82,7 +82,7 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
 
     // Step 6: Send to Groq and get response
     const completion = await groq.chat.completions.create({
-      model: 'llama-3.3-70b-versatile',
+      model: 'openai/gpt-oss-120b',
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: userPrompt }
@@ -103,7 +103,7 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
         relevanceScore: Math.round(doc.score * 100)
       })),
       isEmergency,
-      model: 'llama-3.3-70b-versatile'
+      model: 'openai/gpt-oss-120b'
     })
 
   } catch (error) {
