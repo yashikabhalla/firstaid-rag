@@ -59,7 +59,9 @@ export default function Home() {
           role: 'assistant',
           content: data.answer,
           sources: data.sources,
-          isEmergency: data.isEmergency
+          isEmergency: data.isEmergency,
+          isCrisisResponse: data.isCrisisResponse || false,
+          lowConfidence: data.lowConfidence || false
         }])
       }
     } catch (error) {

@@ -1,5 +1,6 @@
 import SourceCard from './SourceCard'
 import EmergencyBanner from './EmergencyBanner'
+import CrisisBanner from './CrisisBanner'
 
 export default function ChatMessage({ message }) {
   const isUser = message.role === 'user'
@@ -9,6 +10,18 @@ export default function ChatMessage({ message }) {
       <div className="flex justify-end mb-4">
         <div className="bg-blue-600 text-white rounded-2xl rounded-tr-sm px-4 py-3 max-w-[80%]">
           <p className="text-sm">{message.content}</p>
+        </div>
+      </div>
+    )
+  }
+
+  // Crisis responses get their own distinct rendering — no bot header,
+  // no sources footer, visually separate from normal first-aid answers.
+  if (message.isCrisisResponse) {
+    return (
+      <div className="flex justify-start mb-4">
+        <div className="max-w-[85%]">
+          <CrisisBanner answer={message.content} />
         </div>
       </div>
     )

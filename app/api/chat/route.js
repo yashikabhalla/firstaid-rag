@@ -1,11 +1,15 @@
 import { NextResponse } from 'next/server'
 import { createEmbedding } from '@/lib/embeddings'
 import { getPineconeIndex } from '@/lib/pinecone'
+import { isCrisisQuery, CRISIS_RESPONSE } from '@/lib/safety'
 import Groq from 'groq-sdk'
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
-// Keywords that trigger emergency 911 warning
+// Minimum semantic similarity to trust a retrieved document.
+// 0.2 was effectively not filtering anything — raised after manual testing.
+const MIN_CONFIDENCE = 0.55
+
 const EMERGENCY_KEYWORDS = [
   'heart attack', 'cardiac arrest', 'not breathing', 'no pulse',
   'chest pain', 'stroke', 'unconscious', 'unresponsive', 'anaphylaxis',
@@ -23,18 +27,18 @@ export async function POST(request) {
     const { message } = await request.json()
 
     if (!message || message.trim() === '') {
-      return NextResponse.json(
-        { error: 'Message is required' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Message is required' }, { status: 400 })
+    }
+
+    // ── Step 0: Crisis check — runs BEFORE embedding/retrieval/generation ──
+    if (isCrisisQuery(message)) {
+      return NextResponse.json(CRISIS_RESPONSE)
     }
 
     const isEmergency = checkEmergency(message)
 
-    // Step 1: Convert user question to embedding
     const queryEmbedding = await createEmbedding(message)
 
-    // Step 2: Search Pinecone for relevant first aid entries
     const index = await getPineconeIndex()
     const searchResults = await index.query({
       vector: queryEmbedding,
@@ -42,9 +46,9 @@ export async function POST(request) {
       includeMetadata: true
     })
 
-    // Step 3: Extract the relevant content from search results
+    // ── Confidence filtering ──
     const relevantDocs = searchResults.matches
-      .filter(match => match.score > 0.2)
+      .filter(match => match.score >= MIN_CONFIDENCE)
       .map(match => ({
         topic: match.metadata.topic,
         content: match.metadata.content,
@@ -53,15 +57,23 @@ export async function POST(request) {
         score: match.score
       }))
 
-    // Step 4: Build context from retrieved documents
-    let context = ''
-    if (relevantDocs.length > 0) {
-      context = relevantDocs.map((doc, i) =>
-        `[Source ${i + 1}: ${doc.source}]\nTopic: ${doc.topic}\n${doc.content}`
-      ).join('\n\n---\n\n')
+    // ── No reliable match: return a fixed response, skip the LLM entirely ──
+    if (relevantDocs.length === 0) {
+      return NextResponse.json({
+        answer:
+          "I don't have verified guidance specific to this in my database. " +
+          "Please consult a medical professional, or call your local emergency number if this is urgent.",
+        sources: [],
+        isEmergency,
+        lowConfidence: true,
+        model: 'openai/gpt-oss-120b'
+      })
     }
 
-    // Step 5: Build the prompt for Groq
+    const context = relevantDocs.map((doc, i) =>
+      `[Source ${i + 1}: ${doc.source}]\nTopic: ${doc.topic}\n${doc.content}`
+    ).join('\n\n---\n\n')
+
     const systemPrompt = `You are a first aid assistant that provides accurate, helpful first aid guidance.
 
 IMPORTANT RULES:
@@ -70,17 +82,13 @@ IMPORTANT RULES:
 - If the question is not related to first aid or medical emergencies, politely redirect
 - Always recommend seeking professional medical help for serious conditions
 - Be clear, concise, and use numbered steps when giving instructions
-- If no relevant information is found in the sources, say so clearly
 
 ${isEmergency ? '🚨 EMERGENCY DETECTED: Start your response with "CALL 911 IMMEDIATELY" in bold.' : ''}
 
 MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guidance only and professional medical help should be sought for serious conditions.`
 
-    const userPrompt = relevantDocs.length > 0
-      ? `Question: ${message}\n\nRelevant medical information from verified sources:\n\n${context}\n\nPlease provide clear first aid guidance based on the above sources.`
-      : `Question: ${message}\n\nNo specific information was found in our first aid database for this query. Please provide general guidance and recommend consulting a medical professional.`
+    const userPrompt = `Question: ${message}\n\nRelevant medical information from verified sources:\n\n${context}\n\nPlease provide clear first aid guidance based on the above sources.`
 
-    // Step 6: Send to Groq and get response
     const completion = await groq.chat.completions.create({
       model: 'openai/gpt-oss-120b',
       messages: [
@@ -93,7 +101,6 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
 
     const answer = completion.choices[0].message.content
 
-    // Step 7: Return answer + sources + emergency flag
     return NextResponse.json({
       answer,
       sources: relevantDocs.map(doc => ({
@@ -108,9 +115,6 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
 
   } catch (error) {
     console.error('API Error:', error)
-    return NextResponse.json(
-      { error: 'Something went wrong. Please try again.' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 })
   }
 }
