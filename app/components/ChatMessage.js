@@ -1,6 +1,7 @@
 import SourceCard from './SourceCard'
 import EmergencyBanner from './EmergencyBanner'
 import CrisisBanner from './CrisisBanner'
+import LowConfidenceBanner from './LowConfidenceBanner'
 
 export default function ChatMessage({ message }) {
   const isUser = message.role === 'user'
@@ -15,13 +16,21 @@ export default function ChatMessage({ message }) {
     )
   }
 
-  // Crisis responses get their own distinct rendering — no bot header,
-  // no sources footer, visually separate from normal first-aid answers.
   if (message.isCrisisResponse) {
     return (
       <div className="flex justify-start mb-4">
         <div className="max-w-[85%]">
           <CrisisBanner answer={message.content} />
+        </div>
+      </div>
+    )
+  }
+
+  if (message.lowConfidence) {
+    return (
+      <div className="flex justify-start mb-4">
+        <div className="max-w-[85%]">
+          <LowConfidenceBanner answer={message.content} />
         </div>
       </div>
     )
@@ -35,7 +44,6 @@ export default function ChatMessage({ message }) {
 
         {/* Answer bubble */}
         <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
-          {/* Bot header */}
           <div className="flex items-center gap-2 mb-2">
             <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">+</span>
@@ -43,12 +51,10 @@ export default function ChatMessage({ message }) {
             <span className="text-xs font-semibold text-gray-500">FirstAid Assistant</span>
           </div>
 
-          {/* Answer text — render line breaks */}
           <div className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
             {message.content}
           </div>
 
-          {/* Sources */}
           {message.sources && message.sources.length > 0 && (
             <div className="mt-3 pt-3 border-t border-gray-100">
               <p className="text-xs text-gray-400 font-medium mb-2">SOURCES</p>
