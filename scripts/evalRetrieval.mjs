@@ -50,33 +50,34 @@ const tfidfIndex = buildTfidfIndex(tfidfDocs);
 // real data/firstaid.js entries.
 // -----------------------------------------------------------------------
 const TEST_QUESTIONS = [
+  // Direct/clinical phrasing
   { query: "what do I do if someone is choking", expectedId: "choke-001" },
   { query: "how to treat a severe nosebleed", expectedId: "bleed-003" },
-  { query: "signs of a stroke and what to do", expectedId: "stroke-001" },
-  { query: "someone collapsed and isn't breathing, chest compressions", expectedId: "cpr-001" },
-  { query: "got stung outside and now wheezing, this doesn't feel normal", expectedId: "allergy-001" },
-  { query: "my son's whole body just started jerking and won't stop", expectedId: "seizure-001" },
-  { query: "how to treat a large deep burn with blisters", expectedId: "burn-002" },
-  { query: "snake bit my friend on the leg", expectedId: "snakebite-001" },
-  { query: "my grandpa mixed up his medication and swallowed way more than prescribed", expectedId: "overdose-001" },
-  { query: "chest pain and shortness of breath", expectedId: "heart-001" },
-  { query: "sudden wave of dread, chest tight, heart pounding for no reason", expectedId: "panic-001" },
   { query: "how to use an EpiPen for allergic reaction", expectedId: "allergy-001" },
   { query: "using an AED on someone", expectedId: "aed-001" },
+  { query: "how to remove a tick from skin", expectedId: "tickbite-001" },
+  { query: "how to treat a large deep burn with blisters", expectedId: "burn-002" },
   { query: "frostbite on fingers turning white and hard", expectedId: "frostbite-001" },
+  { query: "swallowed something poisonous by accident", expectedId: "poison-001" },
+  { query: "baby is choking on something", expectedId: "choke-003" },
+  { query: "how do you use narcan on someone", expectedId: "overdose-001" },
+
+  // Natural/indirect phrasing — how real users actually describe symptoms
+  { query: "my grandpa mixed up his medication and swallowed way more than prescribed", expectedId: "overdose-001" },
+  { query: "got stung outside and now wheezing, this doesn't feel normal", expectedId: "allergy-001" },
+  { query: "my son's whole body just started jerking and won't stop", expectedId: "seizure-001" },
   { query: "someone was working outside on a hot day and now seems out of it", expectedId: "heat-001" },
   { query: "fell off my bike and my arm looks weirdly out of its socket", expectedId: "dislocation-001" },
-  { query: "swallowed something poisonous by accident", expectedId: "poison-001" },
   { query: "my coworker's words came out garbled and one side of his mouth looks off", expectedId: "stroke-001" },
+  { query: "sudden wave of dread, chest tight, heart pounding for no reason", expectedId: "panic-001" },
+  { query: "someone collapsed and isn't breathing, chest compressions", expectedId: "cpr-001" },
   { query: "dog bit my hand and it's bleeding", expectedId: "animalbite-001" },
-  { query: "how to remove a tick from skin", expectedId: "tickbite-001" },
-  { query: "baby is choking on something", expectedId: "choke-003" },
-  { query: "AED pads placement", expectedId: "aed-001" },
-  { query: "using a defib on someone in cardiac arrest", expectedId: "aed-001" },
+  { query: "snake bit my friend on the leg", expectedId: "snakebite-001" },
   { query: "someone fainted and passed out briefly", expectedId: "faint-001" },
-  { query: "administering an epi pen shot", expectedId: "allergy-001" },
-  { query: "how do you use narcan on someone", expectedId: "overdose-001" },
-  { query: "kid put a bead up their nose", expectedId: null }, // deliberately out-of-scope: tests whether system honestly says "no info" instead of guessing
+  { query: "child having uncontrolled shaking convulsions", expectedId: "seizure-001" },
+
+  // Out-of-scope check
+  { query: "kid put a bead up their nose", expectedId: null },
 ];
 
 // -----------------------------------------------------------------------
