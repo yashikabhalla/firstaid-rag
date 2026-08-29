@@ -442,7 +442,7 @@ Rest is the primary treatment — avoid screens, physical exertion, and alcohol 
     topic: "Heat stroke and heat exhaustion",
     source: "Mayo Clinic",
     sourceUrl: "https://www.mayoclinic.org/diseases-conditions/heat-stroke/symptoms-causes/syc-20353581",
-    keywords: ["heat stroke", "heat exhaustion", "overheating", "sunstroke", "hot weather", "hyperthermia"],
+    keywords: ["heat stroke", "heat exhaustion", "overheating", "sunstroke", "hot weather", "hyperthermia", "passed out from heat", "confused in the heat", "fainted from heat", "heat confusion"],
     content: `Heat exhaustion (heavy sweating, weakness, cold/pale/clammy skin, nausea):
 1. Move to a cool place immediately.
 2. Loosen clothing, apply cool wet cloths.
@@ -527,7 +527,7 @@ Signs: headache, dizziness, weakness, nausea, confusion, chest pain (CO is odorl
     topic: "Drug overdose",
     source: "CDC",
     sourceUrl: "https://www.cdc.gov/drugoverdose/index.html",
-    keywords: ["overdose", "drug overdose", "opioid overdose", "unconscious drugs", "narcan", "naloxone"],
+    keywords: ["overdose", "drug overdose", "opioid overdose", "unconscious drugs", "narcan", "naloxone", "took too many pills", "accidental overdose", "swallowed too many pills", "medication overdose"],
     content: `For a suspected drug overdose:
 1. Call 911 immediately — do not wait to see if it gets better.
 2. Do NOT leave the person alone.
@@ -643,7 +643,7 @@ Try to identify/photograph the spider for medical staff if it can be done safely
     topic: "Anaphylaxis - severe allergic reaction",
     source: "Mayo Clinic",
     sourceUrl: "https://www.mayoclinic.org/diseases-conditions/anaphylaxis/symptoms-causes/syc-20351468",
-    keywords: ["allergic reaction", "anaphylaxis", "epipen", "allergy attack", "throat swelling", "bee allergy", "food allergy severe"],
+    keywords: ["allergic reaction", "anaphylaxis", "epipen", "allergy attack", "throat swelling", "bee allergy", "food allergy severe", "trouble breathing after sting", "difficulty breathing allergy", "swelling after bee sting"],
     content: `EMERGENCY — Severe allergic reaction (anaphylaxis):
 Signs: hives, throat/tongue swelling, difficulty breathing, rapid heartbeat, drop in blood pressure, dizziness, nausea.
 1. CALL 911 immediately.

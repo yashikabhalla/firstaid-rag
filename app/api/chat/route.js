@@ -6,8 +6,6 @@ import Groq from 'groq-sdk'
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
-// Minimum semantic similarity to trust a retrieved document.
-// 0.2 was effectively not filtering anything — raised after manual testing.
 const MIN_CONFIDENCE = 0.55
 
 const EMERGENCY_KEYWORDS = [
@@ -30,7 +28,6 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 })
     }
 
-    // ── Step 0: Crisis check — runs BEFORE embedding/retrieval/generation ──
     if (isCrisisQuery(message)) {
       return NextResponse.json(CRISIS_RESPONSE)
     }
@@ -38,7 +35,6 @@ export async function POST(request) {
     const isEmergency = checkEmergency(message)
 
     const queryEmbedding = await createEmbedding(message)
-
     const index = await getPineconeIndex()
     const searchResults = await index.query({
       vector: queryEmbedding,
@@ -46,19 +42,8 @@ export async function POST(request) {
       includeMetadata: true
     })
 
-    // ── Confidence filtering ──
-    const relevantDocs = searchResults.matches
-      .filter(match => match.score >= MIN_CONFIDENCE)
-      .map(match => ({
-        topic: match.metadata.topic,
-        content: match.metadata.content,
-        source: match.metadata.source,
-        sourceUrl: match.metadata.sourceUrl,
-        score: match.score
-      }))
-
-    // ── No reliable match: return a fixed response, skip the LLM entirely ──
-    if (relevantDocs.length === 0) {
+    const topScore = searchResults.matches[0]?.score ?? 0
+    if (topScore < MIN_CONFIDENCE) {
       return NextResponse.json({
         answer:
           "I don't have verified guidance specific to this in my database. " +
@@ -69,6 +54,14 @@ export async function POST(request) {
         model: 'openai/gpt-oss-120b'
       })
     }
+
+    const relevantDocs = searchResults.matches.map(match => ({
+      topic: match.metadata.topic,
+      content: match.metadata.content,
+      source: match.metadata.source,
+      sourceUrl: match.metadata.sourceUrl,
+      score: match.score
+    }))
 
     const context = relevantDocs.map((doc, i) =>
       `[Source ${i + 1}: ${doc.source}]\nTopic: ${doc.topic}\n${doc.content}`
