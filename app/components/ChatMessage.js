@@ -28,12 +28,13 @@ export default function ChatMessage({ message }) {
 
   if (message.lowConfidence) {
     return (
-      <div className="flex justify-start mb-4">
-        <div className="max-w-[85%]">
-          <LowConfidenceBanner answer={message.content} />
-        </div>
-      </div>
-    )
+       <div className="flex justify-start mb-4">
+         <div className="max-w-[85%]">
+           {message.isEmergency && <EmergencyBanner />}
+           <LowConfidenceBanner answer={message.content} />
+         </div>
+       </div>
+     )
   }
 
   return (
