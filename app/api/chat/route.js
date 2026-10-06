@@ -23,15 +23,15 @@ function checkEmergency(text) {
 
 export async function POST(request) {
   try {
-    const { message, region = 'IN' } = await request.json()
-
+    const { message, region: regionCode = 'IN' } = await request.json()
+    const region = getRegion(regionCode)  
     if (!message || message.trim() === '') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 })
     }
 
 
     if (isCrisisQuery(message)) {
-      return NextResponse.json(getCrisisResponse(region))
+       return NextResponse.json(getCrisisResponse(regionCode))
     }
 
     const isEmergency = checkEmergency(message)
