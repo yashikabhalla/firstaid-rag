@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server'
 import { getRegion, applyRegion } from '@/lib/region'
 import { createEmbedding } from '@/lib/embeddings'
 import { getPineconeIndex } from '@/lib/pinecone'
-import { isCrisisQuery, CRISIS_RESPONSE } from '@/lib/safety'
+import { isCrisisQuery, getCrisisResponse } from '@/lib/safety'
 import Groq from 'groq-sdk'
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
@@ -23,16 +23,15 @@ function checkEmergency(text) {
 
 export async function POST(request) {
   try {
-    const { message, region: regionCode } = await request.json()
+    const { message, region = 'IN' } = await request.json()
 
     if (!message || message.trim() === '') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 })
     }
 
-    const region = getRegion(regionCode)
 
     if (isCrisisQuery(message)) {
-      return NextResponse.json(CRISIS_RESPONSE)
+      return NextResponse.json(getCrisisResponse(region))
     }
 
     const isEmergency = checkEmergency(message)
