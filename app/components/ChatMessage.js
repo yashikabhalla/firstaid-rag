@@ -2,6 +2,7 @@ import SourceCard from './SourceCard'
 import EmergencyBanner from './EmergencyBanner'
 import CrisisBanner from './CrisisBanner'
 import LowConfidenceBanner from './LowConfidenceBanner'
+import Markdown from './Markdown'
 
 export default function ChatMessage({ message }) {
   const isUser = message.role === 'user'
@@ -61,8 +62,8 @@ export default function ChatMessage({ message }) {
             </span>
           </div>
 
-          <div className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
-            {message.content}
+          <div className="text-sm text-gray-800 leading-relaxed">
+            <Markdown>{message.content}</Markdown>
           </div>
 
           {message.sources && message.sources.length > 0 && (
