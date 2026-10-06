@@ -28,20 +28,26 @@ export default function ChatMessage({ message }) {
 
   if (message.lowConfidence) {
     return (
-       <div className="flex justify-start mb-4">
-         <div className="max-w-[85%]">
-           {message.isEmergency && <EmergencyBanner />}
-           <LowConfidenceBanner answer={message.content} />
-         </div>
-       </div>
-     )
+      <div className="flex justify-start mb-4">
+        <div className="max-w-[85%]">
+          {message.isEmergency && (
+            <EmergencyBanner number={message.emergencyNumber} />
+          )}
+
+          <LowConfidenceBanner answer={message.content} />
+        </div>
+      </div>
+    )
   }
 
   return (
     <div className="flex justify-start mb-4">
       <div className="max-w-[85%]">
+
         {/* Emergency banner */}
-        {message.isEmergency && <EmergencyBanner />}
+        {message.isEmergency && (
+          <EmergencyBanner number={message.emergencyNumber} />
+        )}
 
         {/* Answer bubble */}
         <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm">
@@ -49,7 +55,10 @@ export default function ChatMessage({ message }) {
             <div className="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
               <span className="text-white text-xs">+</span>
             </div>
-            <span className="text-xs font-semibold text-gray-500">FirstAid Assistant</span>
+
+            <span className="text-xs font-semibold text-gray-500">
+              FirstAid Assistant
+            </span>
           </div>
 
           <div className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
@@ -58,7 +67,10 @@ export default function ChatMessage({ message }) {
 
           {message.sources && message.sources.length > 0 && (
             <div className="mt-3 pt-3 border-t border-gray-100">
-              <p className="text-xs text-gray-400 font-medium mb-2">SOURCES</p>
+              <p className="text-xs text-gray-400 font-medium mb-2">
+                SOURCES
+              </p>
+
               <div className="flex flex-col gap-2">
                 {message.sources.map((source, i) => (
                   <SourceCard key={i} source={source} />
