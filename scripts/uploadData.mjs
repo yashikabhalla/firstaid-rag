@@ -7,6 +7,13 @@ dotenv.config({ path: '.env.local' })
 const require = createRequire(import.meta.url)
 const firstAidData = require('../data/firstaid.js')
 
+function forEmbedding(text) {
+  return text
+    .replaceAll('{{EMERGENCY}}', 'emergency services')
+    .replaceAll('{{POISON_LINE}}', 'poison control')
+    .replaceAll('{{CRISIS_LINE}}', 'a crisis helpline')
+}
+
 async function createEmbedding(text) {
   const response = await fetch('https://api.cohere.com/v1/embed', {
     method: 'POST',
@@ -38,7 +45,7 @@ async function uploadData() {
   console.log(`Uploading ${firstAidData.length} entries...`)
 
   for (const item of firstAidData) {
-    const textToEmbed = `${item.topic} ${item.keywords.join(' ')} ${item.content}`
+    const textToEmbed = forEmbedding(`${item.topic} ${item.keywords.join(' ')} ${item.content}`)
     const embedding = await createEmbedding(textToEmbed)
 
     await index.upsert({ records: [{

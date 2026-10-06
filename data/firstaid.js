@@ -13,7 +13,7 @@ const firstAidData = [
 4. If possible, elevate the injured area above the heart level.
 5. Once bleeding stops, secure with a bandage.
 6. Do NOT use a tourniquet unless bleeding is life-threatening and uncontrollable.
-Call 911 if: bleeding doesn't stop after 15 minutes, wound is deep or gaping, caused by a puncture, or involves the head/chest/abdomen.`
+Call {{EMERGENCY}} if: bleeding doesn't stop after 15 minutes, wound is deep or gaping, caused by a puncture, or involves the head/chest/abdomen.`
   },
   {
     id: "bleed-002",
@@ -22,7 +22,7 @@ Call 911 if: bleeding doesn't stop after 15 minutes, wound is deep or gaping, ca
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/bleeding",
     keywords: ["deep wound", "severe bleeding", "gaping wound", "heavy bleeding", "arterial bleeding"],
     content: `For deep or severely bleeding wounds:
-1. Call 911 immediately.
+1. Call {{EMERGENCY}} immediately.
 2. Apply the hardest pressure you can with both hands using a thick cloth or clothing.
 3. If trained, pack the wound tightly with gauze and maintain pressure.
 4. Do NOT remove embedded objects — apply pressure around them.
@@ -76,7 +76,7 @@ For a cut or puncture to the eye:
 For a chemical splash:
 1. Flush immediately with large amounts of cool water for 15-20 minutes.
 2. Hold eye open under gentle stream of water.
-3. Call Poison Control: 1-800-222-1222.
+3. Call {{POISON_LINE}}.
 4. Seek emergency care.
 For a black eye (blunt trauma):
 1. Apply ice pack wrapped in cloth for 15-20 minutes.
@@ -121,7 +121,7 @@ Seek medical help if: burn is larger than 3 inches, on face/hands/feet/genitals/
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/burns",
     keywords: ["severe burn", "deep burn", "third degree burn", "large burn", "serious burn"],
     content: `For severe burns (blisters, charred or white skin, large area):
-1. CALL 911 immediately.
+1. CALL {{EMERGENCY}} immediately.
 2. Do NOT remove burned clothing stuck to skin.
 3. Do NOT immerse large severe burns in cold water — can cause shock.
 4. Cover with a cool moist bandage or clean cloth.
@@ -136,7 +136,7 @@ Seek medical help if: burn is larger than 3 inches, on face/hands/feet/genitals/
     sourceUrl: "https://www.mayoclinic.org/first-aid/first-aid-chemical-burns/basics/art-20056667",
     keywords: ["chemical burn", "acid burn", "bleach burn", "chemical on skin", "corrosive burn"],
     content: `For a chemical burn to skin:
-1. Call 911 for large or severe chemical burns.
+1. Call {{EMERGENCY}} for large or severe chemical burns.
 2. Remove contaminated clothing and jewelry — protect your own hands with gloves.
 3. Brush off any dry chemical powder before adding water.
 4. Flush skin with large amounts of cool running water for at least 20 minutes.
@@ -153,7 +153,7 @@ Seek medical help if: burn is larger than 3 inches, on face/hands/feet/genitals/
     content: `For an electrical burn or electric shock:
 1. Do NOT touch the person if they are still in contact with the electrical source.
 2. Turn off the power source if safely possible, or use a non-conductive object (wooden broom) to push the source away.
-3. Call 911 immediately — electrical burns are often more severe internally than they appear.
+3. Call {{EMERGENCY}} immediately — electrical burns are often more severe internally than they appear.
 4. Check for breathing and pulse — be prepared to perform CPR.
 5. Do NOT move person if spinal injury is suspected.
 6. Cover burns with a dry sterile bandage.
@@ -185,7 +185,7 @@ Seek medical care if: blistering over large area, fever, chills, severe pain, co
     keywords: ["choking", "choke", "heimlich", "cant breathe", "airway blocked", "stuck in throat"],
     content: `For a choking adult who cannot speak, cough, or breathe:
 1. Ask "Are you choking?" — if they cannot speak, act immediately.
-2. Call 911 or have someone call while you help.
+2. Call {{EMERGENCY}} or have someone call while you help.
 3. Give 5 firm back blows: lean them forward, strike between shoulder blades with heel of hand.
 4. Give 5 abdominal thrusts (Heimlich): stand behind, make fist above navel, grab with other hand, thrust sharply inward and upward.
 5. Alternate 5 back blows and 5 abdominal thrusts until object is dislodged or person loses consciousness.
@@ -199,7 +199,7 @@ Do NOT do blind finger sweeps — only remove visible objects.`
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/choking",
     keywords: ["child choking", "kid choking", "choking child", "toddler choking"],
     content: `For a choking child aged 1-12:
-1. Call 911 or have someone call.
+1. Call {{EMERGENCY}} or have someone call.
 2. Encourage coughing if the child can still cough forcefully.
 3. If coughing is ineffective: kneel or stand behind the child.
 4. Give 5 back blows between shoulder blades with the heel of your hand.
@@ -214,7 +214,7 @@ Do NOT do blind finger sweeps — only remove visible objects.`
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/choking",
     keywords: ["baby choking", "infant choking", "choking baby", "choking infant", "newborn choking"],
     content: `For a choking infant under 1 year:
-1. Call 911 immediately or have someone else call.
+1. Call {{EMERGENCY}} immediately or have someone else call.
 2. Hold infant face-down on your forearm, head lower than chest, supporting head.
 3. Give 5 gentle back blows between shoulder blades with 2 fingers.
 4. Turn infant face-up on your forearm.
@@ -234,7 +234,7 @@ NEVER do abdominal thrusts on an infant — chest thrusts only.`
 2. Help them use their reliever inhaler (usually blue) immediately — up to 10 puffs.
 3. Use a spacer if available — it makes the inhaler more effective.
 4. If no improvement after 5-10 minutes, use inhaler again.
-5. Call 911 if: no inhaler available, no improvement after 10 minutes, lips or fingernails turn blue, person is exhausted from breathing effort, or confusion develops.
+5. Call {{EMERGENCY}} if: no inhaler available, no improvement after 10 minutes, lips or fingernails turn blue, person is exhausted from breathing effort, or confusion develops.
 6. Stay with them and keep them calm — anxiety worsens attacks.
 7. After attack: always follow up with a doctor even if it resolves.`
   },
@@ -245,7 +245,7 @@ NEVER do abdominal thrusts on an infant — chest thrusts only.`
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/drowning",
     keywords: ["drowning", "water", "swimming", "pool", "ocean", "lake", "submerged", "near drowning"],
     content: `For drowning:
-1. Call 911 immediately.
+1. Call {{EMERGENCY}} immediately.
 2. Do NOT enter water unless trained — throw a rope, ring buoy, or flotation device instead.
 3. Once person is safely out of water, check for breathing and responsiveness.
 4. If not breathing: begin CPR immediately — start with 5 rescue breaths, then 30 compressions.
@@ -262,7 +262,7 @@ NEVER do abdominal thrusts on an infant — chest thrusts only.`
     sourceUrl: "https://www.redcross.org/take-a-class/cpr",
     keywords: ["cpr", "cardiac arrest", "not breathing", "unconscious", "no pulse", "resuscitation adult"],
     content: `Adult CPR (unresponsive and not breathing normally):
-1. CALL 911 immediately. Send someone for an AED if available.
+1. CALL {{EMERGENCY}} immediately. Send someone for an AED if available.
 2. Place person on back on a firm flat surface.
 3. Tilt head back, lift chin to open airway. Check for breathing up to 10 seconds.
 4. Place heel of hand on center of chest (lower half of breastbone). Place other hand on top, interlace fingers.
@@ -278,7 +278,7 @@ NEVER do abdominal thrusts on an infant — chest thrusts only.`
     sourceUrl: "https://www.redcross.org/take-a-class/cpr",
     keywords: ["child cpr", "kid cpr", "cpr child", "child not breathing", "child unconscious"],
     content: `Child CPR (ages 1-12):
-1. Call 911 immediately.
+1. Call {{EMERGENCY}} immediately.
 2. Tap shoulders and shout — if no response, begin CPR.
 3. Use one or two hands (based on child size) on center of chest.
 4. Push down about 2 inches at 100-120 compressions per minute.
@@ -293,7 +293,7 @@ NEVER do abdominal thrusts on an infant — chest thrusts only.`
     sourceUrl: "https://www.redcross.org/take-a-class/cpr",
     keywords: ["infant cpr", "baby cpr", "cpr infant", "baby not breathing", "newborn cpr"],
     content: `Infant CPR (under 1 year):
-1. Check responsiveness by flicking foot — call 911 if no response.
+1. Check responsiveness by flicking foot — call {{EMERGENCY}} if no response.
 2. Place infant on firm flat surface on their back.
 3. Tilt head back gently (neutral position — not as far as adults).
 4. Use 2 fingers on center of chest just below nipple line.
@@ -313,7 +313,7 @@ Never shake an infant — even in an emergency.`
 - Shortness of breath
 - Cold sweat, nausea, lightheadedness
 - Pain in left arm, shoulder, neck, back, or jaw
-CALL 911 IMMEDIATELY — do not drive yourself.
+CALL {{EMERGENCY}} IMMEDIATELY — do not drive yourself.
 While waiting for help:
 1. Sit or lie in a comfortable position.
 2. Loosen tight clothing.
@@ -348,14 +348,14 @@ Use pediatric pads for children under 8 if available. AEDs are designed for non-
     sourceUrl: "https://www.nhs.uk/conditions/broken-arm-or-wrist/",
     keywords: ["broken bone", "fracture", "broken arm", "broken leg", "broken wrist", "crack bone"],
     content: `For a suspected fracture or broken bone:
-1. Call 911 for serious fractures or if bone is visible.
+1. Call {{EMERGENCY}} for serious fractures or if bone is visible.
 2. Do NOT try to straighten the bone.
 3. Immobilize the injured area in the position you found it.
 4. Apply a splint if available: pad well, secure above and below the injury.
 5. Apply an ice pack wrapped in cloth to reduce swelling (20 min on, 20 off).
 6. Elevate the injured limb if possible.
 7. Watch for shock: pale, cold, clammy skin, rapid breathing.
-Call 911 immediately if: bone is visible, limb is deformed, severe swelling, numbness/tingling, or suspected spine/hip/pelvis fracture.`
+Call {{EMERGENCY}} immediately if: bone is visible, limb is deformed, severe swelling, numbness/tingling, or suspected spine/hip/pelvis fracture.`
   },
   {
     id: "sprain-001",
@@ -395,7 +395,7 @@ Dislocations must be treated by a medical professional — attempting to relocat
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/head-neck-and-back-injuries",
     keywords: ["spinal injury", "neck injury", "back injury", "spine", "paralysis risk", "do not move"],
     content: `For suspected spinal injury:
-1. Call 911 immediately — do NOT move the person.
+1. Call {{EMERGENCY}} immediately — do NOT move the person.
 2. Tell them to stay completely still.
 3. If they must be moved (fire, drowning), support the head and neck and keep spine aligned.
 4. Do NOT bend, twist, or flex the neck or back.
@@ -417,7 +417,7 @@ Immediate steps:
 2. Apply ice to any external swelling.
 3. Do NOT give aspirin or ibuprofen (may increase bleeding) — paracetamol is safer.
 4. Do NOT leave them alone for the first few hours.
-Call 911 immediately if: unconsciousness, repeated vomiting, seizure, one pupil larger than other, severe headache, slurred speech, or weakness in limbs.
+Call {{EMERGENCY}} immediately if: unconsciousness, repeated vomiting, seizure, one pupil larger than other, severe headache, slurred speech, or weakness in limbs.
 Rest is the primary treatment — avoid screens, physical exertion, and alcohol until cleared by a doctor.`
   },
   {
@@ -427,7 +427,7 @@ Rest is the primary treatment — avoid screens, physical exertion, and alcohol 
     sourceUrl: "https://www.nhs.uk/conditions/skull-fractures/",
     keywords: ["skull fracture", "cracked skull", "head fracture", "skull injury", "depressed skull"],
     content: `Signs of skull fracture: severe headache, unconsciousness, clear fluid from nose or ears, bruising behind ears or around eyes, unequal pupils, slurred speech, seizures.
-1. Call 911 immediately.
+1. Call {{EMERGENCY}} immediately.
 2. Keep person still — suspect spinal injury too.
 3. Do NOT apply direct pressure to the wound.
 4. Cover wound loosely with sterile gauze — do NOT remove any embedded objects.
@@ -450,7 +450,7 @@ Rest is the primary treatment — avoid screens, physical exertion, and alcohol 
 4. Lie down with legs elevated.
 
 Heat stroke — EMERGENCY (body temp above 103°F/39.4°C, hot/red/dry skin, confusion, unconsciousness):
-1. CALL 911 immediately.
+1. CALL {{EMERGENCY}} immediately.
 2. Move to cool area. Cool rapidly: cold water immersion, ice packs on neck/armpits/groin, wet sheets.
 3. Do NOT give fluids to unconscious person.
 4. Continue cooling until help arrives.`
@@ -463,7 +463,7 @@ Heat stroke — EMERGENCY (body temp above 103°F/39.4°C, hot/red/dry skin, con
     keywords: ["hypothermia", "too cold", "freezing", "cold exposure", "low body temperature", "shivering"],
     content: `For hypothermia (body temperature dangerously low):
 Signs: intense shivering, slurred speech, slow breathing, weak pulse, clumsiness, confusion, in severe cases — no shivering (very dangerous).
-1. Call 911 for moderate to severe hypothermia.
+1. Call {{EMERGENCY}} for moderate to severe hypothermia.
 2. Move person to a warm, dry place.
 3. Remove wet clothing.
 4. Cover with blankets including head — leave face uncovered.
@@ -498,14 +498,14 @@ Seek medical care for anything beyond very mild frostbite.`
     sourceUrl: "https://www.cdc.gov/niosh/topics/emres/chemagent.html",
     keywords: ["poisoning", "swallowed poison", "toxic", "ingested chemicals", "swallowed bleach"],
     content: `For swallowed poison:
-1. Call Poison Control immediately: 1-800-222-1222 (US).
-2. Call 911 if: person is unconscious, not breathing, or having seizures.
-3. Do NOT induce vomiting unless specifically instructed by Poison Control.
+1. Call {{POISON_LINE}} immediately.
+2. Call {{EMERGENCY}} if: person is unconscious, not breathing, or having seizures.
+3. Do NOT induce vomiting unless specifically instructed by {{POISON_LINE}}.
 4. Have the container or substance name ready.
 5. Do NOT give food or drink unless instructed.
 6. If person vomits, turn on their side to prevent choking.
 7. Collect any vomited material for medical staff.
-Keep Poison Control saved: 1-800-222-1222`
+Keep {{POISON_LINE}} saved on your phone`
   },
   {
     id: "co-001",
@@ -516,7 +516,7 @@ Keep Poison Control saved: 1-800-222-1222`
     content: `EMERGENCY — Carbon monoxide poisoning:
 Signs: headache, dizziness, weakness, nausea, confusion, chest pain (CO is odorless — you may not smell it).
 1. Get everyone out of the building immediately — do NOT re-enter.
-2. Call 911 from outside.
+2. Call {{EMERGENCY}} from outside.
 3. Do NOT go back in for pets or belongings.
 4. If person is unconscious outside, begin CPR if not breathing.
 5. Everyone exposed needs medical evaluation even if feeling okay — CO binds to blood for hours.
@@ -529,7 +529,7 @@ Signs: headache, dizziness, weakness, nausea, confusion, chest pain (CO is odorl
     sourceUrl: "https://www.cdc.gov/drugoverdose/index.html",
     keywords: ["overdose", "drug overdose", "opioid overdose", "unconscious drugs", "narcan", "naloxone", "took too many pills", "accidental overdose", "swallowed too many pills", "medication overdose"],
     content: `For a suspected drug overdose:
-1. Call 911 immediately — do not wait to see if it gets better.
+1. Call {{EMERGENCY}} immediately — do not wait to see if it gets better.
 2. Do NOT leave the person alone.
 3. Check for breathing — if not breathing, begin CPR.
 4. If opioid overdose is suspected and naloxone (Narcan) is available: administer as directed (nasal spray or injection). Repeat every 2-3 minutes if no response.
@@ -547,7 +547,7 @@ Signs of opioid overdose: blue lips, slow/stopped breathing, unresponsive, pinpo
     keywords: ["alcohol poisoning", "drunk unconscious", "too much alcohol", "alcohol overdose", "ethanol poisoning"],
     content: `For alcohol poisoning:
 Signs: confusion, vomiting, seizures, slow/irregular breathing, blue-tinged or pale skin, unconsciousness.
-1. Call 911 immediately — alcohol poisoning can be fatal.
+1. Call {{EMERGENCY}} immediately — alcohol poisoning can be fatal.
 2. Do NOT leave them alone — they can choke on vomit.
 3. Keep them sitting up or on their side (recovery position) to prevent choking.
 4. Do NOT give coffee, water, or food.
@@ -571,7 +571,7 @@ You cannot speed up how quickly the body processes alcohol — medical care is t
 4. Take antihistamine (Benadryl) to reduce itching and swelling.
 5. Apply hydrocortisone cream if available.
 6. Avoid scratching — can cause infection.
-Call 911 immediately for signs of severe allergic reaction (anaphylaxis): throat swelling, difficulty breathing, dizziness, hives spreading rapidly.`
+Call {{EMERGENCY}} immediately for signs of severe allergic reaction (anaphylaxis): throat swelling, difficulty breathing, dizziness, hives spreading rapidly.`
   },
   {
     id: "snakebite-001",
@@ -580,7 +580,7 @@ Call 911 immediately for signs of severe allergic reaction (anaphylaxis): throat
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/bites-and-stings",
     keywords: ["snake bite", "snakebite", "snake", "venomous snake", "bitten by snake"],
     content: `For a snake bite:
-1. Call 911 or Poison Control immediately: 1-800-222-1222.
+1. Call {{EMERGENCY}} or {{POISON_LINE}} immediately.
 2. Get away from the snake — do NOT try to catch or kill it (take a photo from a safe distance if possible).
 3. Keep the person calm and still — movement speeds venom absorption.
 4. Keep the bitten limb below heart level.
@@ -601,7 +601,7 @@ Note the snake's appearance for the hospital — it helps identify the right ant
 3. Apply antibiotic cream and cover with a clean bandage.
 4. Seek medical care — animal bites carry high infection risk and may need antibiotics or rabies evaluation.
 5. Report the bite to local animal control especially if the animal was wild or acting strangely.
-Call 911 or go to ER if: bite is deep, on face/neck/hands, involves a wild animal, or bleeding won't stop.
+Call {{EMERGENCY}} or go to ER if: bite is deep, on face/neck/hands, involves a wild animal, or bleeding won't stop.
 Rabies concern: bites from bats, raccoons, foxes, or unknown dogs/cats require urgent medical evaluation.`
   },
   {
@@ -631,7 +631,7 @@ Do NOT: apply petroleum jelly, nail polish, or heat to the tick.`
 2. Apply cold compress to reduce swelling and pain.
 3. Elevate the bitten area.
 4. Take over-the-counter pain medication if needed.
-Call Poison Control (1-800-222-1222) or 911 for bites from black widow or brown recluse.
+Call {{POISON_LINE}} or {{EMERGENCY}} for bites from black widow or brown recluse.
 Black widow signs: muscle cramps and pain spreading from bite, sweating, fever, chills, nausea within hours.
 Brown recluse signs: growing skin ulcer at bite site, fever, chills, body aches within hours to days.
 Try to identify/photograph the spider for medical staff if it can be done safely.`
@@ -646,7 +646,7 @@ Try to identify/photograph the spider for medical staff if it can be done safely
     keywords: ["allergic reaction", "anaphylaxis", "epipen", "allergy attack", "throat swelling", "bee allergy", "food allergy severe", "trouble breathing after sting", "difficulty breathing allergy", "swelling after bee sting"],
     content: `EMERGENCY — Severe allergic reaction (anaphylaxis):
 Signs: hives, throat/tongue swelling, difficulty breathing, rapid heartbeat, drop in blood pressure, dizziness, nausea.
-1. CALL 911 immediately.
+1. CALL {{EMERGENCY}} immediately.
 2. Use epinephrine auto-injector (EpiPen) if available — inject into outer thigh.
 3. Have person lie down with legs elevated (unless breathing is difficult — then sit upright).
 4. A second EpiPen dose can be given after 5-15 minutes if no improvement.
@@ -670,7 +670,7 @@ If conscious and can swallow:
 3. If improved, give a small snack (crackers, cheese).
 4. If no improvement, repeat sugar intake.
 If unconscious or unable to swallow:
-1. Call 911 immediately.
+1. Call {{EMERGENCY}} immediately.
 2. Do NOT give anything by mouth.
 3. If glucagon kit available and trained, administer it.`
   },
@@ -687,7 +687,7 @@ For mild hyperglycemia:
 2. Encourage light activity if not feeling ill.
 3. Check blood sugar if meter available.
 4. Take prescribed medication if available.
-Call 911 if: blood sugar is very high (above 300 mg/dL), person is vomiting, has fruity breath, is confused, or losing consciousness — this may indicate diabetic ketoacidosis (DKA), which is life-threatening.`
+Call {{EMERGENCY}} if: blood sugar is very high (above 300 mg/dL), person is vomiting, has fruity breath, is confused, or losing consciousness — this may indicate diabetic ketoacidosis (DKA), which is life-threatening.`
   },
   {
     id: "seizure-001",
@@ -704,7 +704,7 @@ Call 911 if: blood sugar is very high (above 300 mg/dL), person is vomiting, has
 6. Do NOT put anything in their mouth — you cannot swallow your tongue.
 7. Stay with them until fully conscious.
 After the seizure: person will be confused and tired — stay and reassure.
-Call 911 if: seizure lasts more than 5 minutes, person doesn't regain consciousness, has another seizure, is injured, pregnant, diabetic, or it is their first seizure.`
+Call {{EMERGENCY}} if: seizure lasts more than 5 minutes, person doesn't regain consciousness, has another seizure, is injured, pregnant, diabetic, or it is their first seizure.`
   },
 
   // ─── STROKE ─────────────────────────────────────────────────────
@@ -718,7 +718,7 @@ Call 911 if: seizure lasts more than 5 minutes, person doesn't regain consciousn
 F — Face drooping: Ask them to smile. Is one side drooping?
 A — Arm weakness: Ask them to raise both arms. Does one drift down?
 S — Speech difficulty: Ask to repeat a phrase. Is speech slurred or strange?
-T — Time to call 911 immediately if ANY of these signs appear.
+T — Time to call {{EMERGENCY}} immediately if ANY of these signs appear.
 While waiting:
 1. Do NOT give food, water, or medication.
 2. If unconscious and breathing, place in recovery position (on side).
@@ -743,7 +743,7 @@ A panic attack is very frightening but not physically dangerous. It usually peak
 5. Move to a quieter space if possible.
 6. Do NOT have them breathe into a paper bag — this is outdated and can be harmful.
 7. After it passes, encourage them to speak with a doctor if recurring.
-Call 911 if: this is their first episode, you are unsure if it is a panic attack, or symptoms include chest pain, numbness, or difficulty breathing that does not improve.`
+Call {{EMERGENCY}} if: this is their first episode, you are unsure if it is a panic attack, or symptoms include chest pain, numbness, or difficulty breathing that does not improve.`
   },
   {
     id: "hyperventilation-001",
@@ -786,14 +786,14 @@ Go to ER if: object is deeply embedded, pain is severe, any loss of hearing, or 
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid/childbirth",
     keywords: ["emergency birth", "delivering baby", "baby coming", "childbirth", "labor emergency", "baby being born"],
     content: `For emergency childbirth when medical help is unavailable:
-1. Call 911 immediately — keep them on the line for guidance.
+1. Call {{EMERGENCY}} immediately — keep them on the line for guidance.
 2. Help the mother lie down somewhere clean.
 3. Do NOT try to stop or delay delivery.
 4. Encourage the mother to breathe through contractions and push when she feels the urge.
 5. When baby's head appears, support it gently — do NOT pull.
 6. After delivery, keep baby warm — dry and wrap in clean cloth immediately.
 7. Keep baby at the level of the mother until cord stops pulsing.
-8. Do NOT cut the cord unless instructed by 911 — and only with clean sharp instrument.
+8. Do NOT cut the cord unless instructed by {{EMERGENCY}} — and only with clean sharp instrument.
 9. Deliver placenta by having mother push gently — expect 5-30 minutes after birth.
 10. Encourage skin-to-skin contact and breastfeeding to help mother's uterus contract.`
   },
@@ -826,7 +826,7 @@ Use this whenever someone is unconscious but breathing — it prevents choking o
     keywords: ["shock", "medical shock", "pale skin", "cold clammy", "rapid pulse", "fainting", "low blood pressure"],
     content: `For medical shock (not emotional shock):
 Signs: pale, cold, clammy skin; rapid weak pulse; rapid shallow breathing; dizziness; confusion; nausea; blue lips.
-1. Call 911 immediately.
+1. Call {{EMERGENCY}} immediately.
 2. Lay the person down on their back.
 3. Elevate legs about 12 inches (unless head, neck, spine, or leg injury suspected).
 4. Keep person warm with a blanket.
@@ -940,7 +940,7 @@ Mild to moderate fever (38-39°C):
 5. Keep the room cool and well ventilated.
 6. Do NOT use cold baths or ice — can cause shivering which raises temperature.
 Seek medical care if: fever above 39.4°C (103°F), fever lasts more than 3 days, severe headache, stiff neck, rash, confusion, difficulty breathing, or chest pain.
-Call 911 if: fever with stiff neck and rash (could be meningitis), confusion, or seizures.`
+Call {{EMERGENCY}} if: fever with stiff neck and rash (could be meningitis), confusion, or seizures.`
   },
   {
     id: "fever-002",
@@ -957,7 +957,7 @@ Normal temperature: 36-36.8°C. Fever: 38°C (100.4°F) or above.
 5. Keep room comfortably cool.
 6. Cool damp cloth on forehead if child is comfortable with it.
 7. Check on child regularly through the night.
-Call 999/911 immediately if child: is under 3 months with fever above 38°C, under 6 months above 39°C, has a febrile seizure, has a purple/red rash that doesn't fade when pressed, is difficult to wake, has stiff neck, or is having difficulty breathing.`
+Call {{EMERGENCY}} immediately if child: is under 3 months with fever above 38°C, under 6 months above 39°C, has a febrile seizure, has a purple/red rash that doesn't fade when pressed, is difficult to wake, has stiff neck, or is having difficulty breathing.`
   },
   {
     id: "stomach-001",
@@ -974,7 +974,7 @@ For mild stomach ache:
 5. Slowly reintroduce bland foods: toast, rice, bananas, crackers.
 6. Avoid dairy, fatty, or spicy foods until recovered.
 Seek medical care if: pain is severe or getting worse, lasts more than a few hours, pain in lower right abdomen (could be appendicitis), accompanied by high fever, or blood in stool or vomit.
-Call 911 if: sudden severe abdominal pain, rigid/hard abdomen, or pain with signs of shock.`
+Call {{EMERGENCY}} if: sudden severe abdominal pain, rigid/hard abdomen, or pain with signs of shock.`
   },
   {
     id: "vomiting-001",
@@ -1071,7 +1071,7 @@ Signs: child suddenly loses consciousness, body stiffens, limbs twitch or jerk, 
 4. Do NOT restrain the child or put anything in their mouth.
 5. Place child in recovery position after jerking stops.
 6. Cool the child gently after seizure — remove excess clothing.
-Call 999/911 if: seizure lasts more than 5 minutes, child does not recover fully, another seizure follows, child is under 18 months, or you are unsure.
+Call {{EMERGENCY}} if: seizure lasts more than 5 minutes, child does not recover fully, another seizure follows, child is under 18 months, or you are unsure.
 Most febrile seizures stop within 2-3 minutes and cause no lasting harm. Always see a doctor after a first febrile seizure.`
   },
   {
@@ -1089,7 +1089,7 @@ Mild croup at home:
 4. Do NOT put child in a steamy bathroom — no longer recommended.
 5. Give paracetamol or ibuprofen for fever and discomfort.
 6. Keep child hydrated.
-Call 999/911 immediately if: child is struggling to breathe, skin sucking in at throat or chest with each breath, lips or fingernails turn blue, child is drooling and cannot swallow, or child is unusually quiet and still.`
+Call {{EMERGENCY}} immediately if: child is struggling to breathe, skin sucking in at throat or chest with each breath, lips or fingernails turn blue, child is drooling and cannot swallow, or child is unusually quiet and still.`
   },
   {
     id: "pediatric-003",
@@ -1100,8 +1100,8 @@ Call 999/911 immediately if: child is struggling to breathe, skin sucking in at 
     content: `EMERGENCY — Meningitis signs in children:
 Early signs: fever, headache, vomiting, muscle pain, cold hands and feet, pale or mottled skin.
 Later signs (very serious): stiff neck, sensitivity to light, seizures, confusion, purple/red rash that does NOT fade when a glass is pressed against it.
-Glass test: press a clear glass firmly against the rash — if it does NOT fade, call 999/911 immediately.
-1. Call 999/911 immediately if you suspect meningitis — do not wait for all symptoms.
+Glass test: press a clear glass firmly against the rash — if it does NOT fade, call {{EMERGENCY}} immediately.
+1. Call {{EMERGENCY}} immediately if you suspect meningitis — do not wait for all symptoms.
 2. Do NOT wait for a rash — not everyone gets one.
 3. Keep child comfortable and monitor breathing.
 4. Reassure child and stay with them.
@@ -1121,11 +1121,10 @@ Meningitis can kill within hours — early treatment is critical. Trust your ins
 3. Listen without judgment — let them talk.
 4. Ask directly: "Are you thinking about suicide?" — asking does not plant the idea.
 5. Remove access to means if safely possible (medications, sharp objects).
-6. Call a crisis line together: 988 Suicide and Crisis Lifeline (US) — call or text 988.
-7. In the UK: Samaritans 116 123 (free, 24/7).
-8. Call 999/911 if person is in immediate danger or has harmed themselves.
-9. Do NOT promise to keep it secret.
-10. After the crisis: help them connect with professional mental health support.
+6. Call a crisis line together: {{CRISIS_LINE}}.
+7. Call {{EMERGENCY}} if person is in immediate danger or has harmed themselves.
+8. Do NOT promise to keep it secret.
+9. After the crisis: help them connect with professional mental health support.
 You do not need to have all the answers — your presence and willingness to listen matters most.`
   },
   {
@@ -1138,13 +1137,13 @@ You do not need to have all the answers — your presence and willingness to lis
 Immediate physical care:
 1. Stay calm — do not react with shock or anger.
 2. Treat any wounds: clean with water, apply pressure to stop bleeding, cover with bandage.
-3. Call 999/911 if: bleeding is severe, wound is deep, or person has taken an overdose.
+3. Call {{EMERGENCY}} if: bleeding is severe, wound is deep, or person has taken an overdose.
 Emotional support:
 1. Listen without judgment.
 2. Do not demand explanations or make them feel ashamed.
 3. Do not promise secrecy — safety comes first.
 4. Encourage them to speak with a doctor or mental health professional.
-5. Crisis line: 988 (US) or Samaritans 116 123 (UK).
+5. Crisis line: {{CRISIS_LINE}}.
 Self harm is often a coping mechanism for emotional pain — the person needs support, not judgment. Your calm response makes a significant difference.`
   },
 
@@ -1163,7 +1162,7 @@ For a mildly infected wound:
 4. Change dressing daily.
 5. Monitor closely for worsening.
 Seek medical care if: pus is present, red streaks spreading from wound (serious sign), fever develops, wound doesn't improve in 2 days, or person is diabetic or immunocompromised.
-Call 999/911 if: red streaks spreading rapidly up the limb, high fever with confusion — this may indicate sepsis which is life-threatening.`
+Call {{EMERGENCY}} if: red streaks spreading rapidly up the limb, high fever with confusion — this may indicate sepsis which is life-threatening.`
   },
   {
     id: "skin-002",
@@ -1180,7 +1179,7 @@ Signs: raised itchy welts on skin, redness, swelling, may appear anywhere on bod
 5. Avoid scratching — can worsen and cause infection.
 6. Take a cool (not hot) bath or shower.
 7. Calamine lotion can soothe itching.
-Call 911 immediately if hives are accompanied by: throat swelling, difficulty breathing, dizziness, or rapid heartbeat — this indicates anaphylaxis, a medical emergency.
+Call {{EMERGENCY}} immediately if hives are accompanied by: throat swelling, difficulty breathing, dizziness, or rapid heartbeat — this indicates anaphylaxis, a medical emergency.
 See a doctor if hives last more than 2 days or keep recurring.`
   },
   {
@@ -1216,7 +1215,7 @@ First aid steps while seeking care:
 3. Encourage fluid intake to prevent dehydration.
 4. Give paracetamol or ibuprofen for fever and chest pain.
 5. Use a humidifier to ease breathing.
-Call 999/911 immediately if: severe difficulty breathing, lips or fingernails turning blue, confusion, rapid deterioration, or person cannot complete sentences due to breathlessness.`
+Call {{EMERGENCY}} immediately if: severe difficulty breathing, lips or fingernails turning blue, confusion, rapid deterioration, or person cannot complete sentences due to breathlessness.`
   },
   {
     id: "respiratory-002",
@@ -1279,13 +1278,13 @@ Most small stones pass on their own within days to weeks.`
     keywords: ["appendicitis", "appendix pain", "right side stomach pain", "lower right abdominal pain", "appendix"],
     content: `EMERGENCY — Signs of appendicitis:
 Symptoms: pain that starts around the navel then moves to lower right abdomen, pain worsens with movement, nausea, vomiting, loss of appetite, mild fever, rigid abdomen.
-1. Call 999/911 or go to ER immediately — appendicitis requires surgery.
+1. Call {{EMERGENCY}} or go to ER immediately — appendicitis requires surgery.
 2. Do NOT eat or drink anything — surgery may be needed.
 3. Do NOT apply heat to the abdomen — can worsen inflammation.
 4. Do NOT take laxatives.
 5. Keep person as still and comfortable as possible.
 6. Note when symptoms started — tell medical staff.
-A burst appendix is life-threatening. If pain suddenly improves then returns worse, this may mean the appendix has burst — call 911 immediately.`
+A burst appendix is life-threatening. If pain suddenly improves then returns worse, this may mean the appendix has burst — call {{EMERGENCY}} immediately.`
   },
 
   // ─── WORKPLACE & SPORTS INJURIES ─────────────────────────────────
@@ -1336,12 +1335,12 @@ To skin:
 2. Flush affected skin with large amounts of cool running water for at least 20 minutes.
 3. Do NOT use neutralizing agents (vinegar, baking soda).
 4. Cover with clean loose bandage after flushing.
-5. Call Poison Control: 1-800-222-1222.
+5. Call {{POISON_LINE}}.
 To eyes:
 1. Flush eye immediately with cool water for 20 minutes — hold eye open under gentle stream.
 2. Remove contact lenses if present and easily removable.
 3. Do NOT rub the eye.
-4. Call 911 and Poison Control simultaneously.
+4. Call {{EMERGENCY}} and {{POISON_LINE}} simultaneously.
 5. Go to ER after flushing.
 For all chemical exposures: bring the chemical container or note the name for medical staff.`
   },
@@ -1352,7 +1351,7 @@ For all chemical exposures: bring the chemical container or note the name for me
     sourceUrl: "https://www.redcross.org/take-a-class/resources/learn-first-aid",
     keywords: ["crush injury", "trapped limb", "crushed hand", "crushed foot", "heavy object injury", "pinned"],
     content: `For a crush injury:
-1. Call 911 immediately.
+1. Call {{EMERGENCY}} immediately.
 2. If safe to do so, remove the crushing object quickly for short compressions.
 3. WARNING: for prolonged crush (more than 15 minutes) — do NOT remove the object without medical guidance. Sudden release can cause life-threatening cardiac arrest from toxins released.
 4. Control any bleeding with direct pressure.
@@ -1413,7 +1412,7 @@ Signs: vaginal bleeding during pregnancy, cramping or pain in lower abdomen or b
 4. Save any passed tissue in a clean container for medical staff.
 5. Do NOT insert anything into the vagina.
 6. Provide emotional support — this is a deeply distressing experience.
-Call 999/911 immediately if: heavy bleeding (soaking more than a pad per hour), severe abdominal pain, signs of shock, or suspected ectopic pregnancy (pain on one side, shoulder tip pain, dizziness).
+Call {{EMERGENCY}} immediately if: heavy bleeding (soaking more than a pad per hour), severe abdominal pain, signs of shock, or suspected ectopic pregnancy (pain on one side, shoulder tip pain, dizziness).
 Ectopic pregnancy is life-threatening — seek emergency care without delay.`
   },
   {
@@ -1424,7 +1423,7 @@ Ectopic pregnancy is life-threatening — seek emergency care without delay.`
     keywords: ["preeclampsia", "pre eclampsia", "pregnancy high blood pressure", "pregnancy headache", "swollen feet pregnancy", "pregnancy emergency"],
     content: `EMERGENCY — Preeclampsia during pregnancy:
 Signs: severe headache, vision changes (blurred/flashing lights), sudden severe swelling of face/hands/feet, upper abdominal pain, feeling very unwell after 20 weeks of pregnancy.
-1. Call 999/911 immediately — preeclampsia can be life-threatening for mother and baby.
+1. Call {{EMERGENCY}} immediately — preeclampsia can be life-threatening for mother and baby.
 2. Have woman lie on her left side.
 3. Keep her calm and still.
 4. Do NOT give aspirin or ibuprofen without medical guidance.
