@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { getRegion, applyRegion } from '@/lib/region'
 import { createEmbedding } from '@/lib/embeddings'
 import { getPineconeIndex } from '@/lib/pinecone'
 import { isCrisisQuery, CRISIS_RESPONSE } from '@/lib/safety'
@@ -22,11 +23,13 @@ function checkEmergency(text) {
 
 export async function POST(request) {
   try {
-    const { message } = await request.json()
+    const { message, region: regionCode } = await request.json()
 
     if (!message || message.trim() === '') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 })
     }
+
+    const region = getRegion(regionCode)
 
     if (isCrisisQuery(message)) {
       return NextResponse.json(CRISIS_RESPONSE)
@@ -47,9 +50,10 @@ export async function POST(request) {
       return NextResponse.json({
         answer:
           "I don't have verified guidance specific to this in my database. " +
-          "Please consult a medical professional, or call your local emergency number if this is urgent.",
+          `Please consult a medical professional, or call ${region.emergency} if this is urgent.`,
         sources: [],
         isEmergency,
+        emergencyNumber: region.emergency,
         lowConfidence: true,
         model: 'openai/gpt-oss-120b'
       })
@@ -57,7 +61,7 @@ export async function POST(request) {
 
     const relevantDocs = searchResults.matches.map(match => ({
       topic: match.metadata.topic,
-      content: match.metadata.content,
+      content: applyRegion(match.metadata.content, region), // CHANGED (1): fills in {{EMERGENCY}} etc.
       source: match.metadata.source,
       sourceUrl: match.metadata.sourceUrl,
       score: match.score
@@ -75,10 +79,12 @@ IMPORTANT RULES:
 - If the question is not related to first aid or medical emergencies, politely redirect
 - Always recommend seeking professional medical help for serious conditions
 - Be clear, concise, and use numbered steps when giving instructions
+- The user's emergency number is ${region.emergency}. Never mention any other country's emergency number.
 
-${isEmergency ? '🚨 EMERGENCY DETECTED: Start your response with "CALL 911 IMMEDIATELY" in bold.' : ''}
+${isEmergency ? `🚨 EMERGENCY DETECTED: Start your response with "**CALL ${region.emergency} IMMEDIATELY**".` : ''}
 
 MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guidance only and professional medical help should be sought for serious conditions.`
+    // CHANGED (2): the emergency-number rule line, and the emergency line now uses ${region.emergency}
 
     const userPrompt = `Question: ${message}\n\nRelevant medical information from verified sources:\n\n${context}\n\nPlease provide clear first aid guidance based on the above sources.`
 
@@ -103,6 +109,7 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
         relevanceScore: Math.round(doc.score * 100)
       })),
       isEmergency,
+      emergencyNumber: region.emergency, // CHANGED (3): so the banner shows the right number
       model: 'openai/gpt-oss-120b'
     })
 

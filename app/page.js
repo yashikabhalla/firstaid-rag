@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import ChatMessage from './components/ChatMessage'
 import LoadingDots from './components/LoadingDots'
+import { REGIONS, DEFAULT_REGION } from '@/lib/region'
 
 const SUGGESTED_QUESTIONS = [
   'How to treat a burn?',
@@ -26,6 +27,22 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const bottomRef = useRef(null)
 
+  const [regionCode, setRegionCode] = useState(DEFAULT_REGION)
+  const region = REGIONS[regionCode] ?? REGIONS[DEFAULT_REGION]
+
+  // Remember the choice between visits
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('firstaid-region')
+      if (saved && REGIONS[saved]) setRegionCode(saved)
+    } catch {}
+  }, [])
+
+  function changeRegion(code) {
+    setRegionCode(code)
+    try { localStorage.setItem('firstaid-region', code) } catch {}
+  }
+
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages, loading])
@@ -42,7 +59,7 @@ export default function Home() {
       const response = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMessage })
+        body: JSON.stringify({ message: userMessage, region: regionCode })
       })
 
       const data = await response.json()
@@ -60,6 +77,7 @@ export default function Home() {
           content: data.answer,
           sources: data.sources,
           isEmergency: data.isEmergency,
+          emergencyNumber: data.emergencyNumber,
           isCrisisResponse: data.isCrisisResponse || false,
           lowConfidence: data.lowConfidence || false
         }])
@@ -95,7 +113,34 @@ export default function Home() {
           <h1 className="font-bold text-gray-900 text-sm">FirstAid RAG Assistant</h1>
           <p className="text-xs text-green-500 font-medium">● Powered by Red Cross · Mayo Clinic · NHS · CDC</p>
         </div>
-        <div className="ml-auto">
+
+        <div className="ml-auto flex items-center gap-2">
+          <label htmlFor="region" className="sr-only">Country for emergency numbers</label>
+
+          <div className="relative">
+            <select
+              id="region"
+              value={regionCode}
+              onChange={e => changeRegion(e.target.value)}
+              className="appearance-none text-xs border border-gray-300 rounded-full pl-3 pr-8 py-1.5 bg-white text-gray-700 cursor-pointer focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400"
+            >
+              {Object.values(REGIONS).map(r => (
+                <option key={r.code} value={r.code}>{r.label}</option>
+              ))}
+            </select>
+
+            {/* our own arrow, sitting inside the box */}
+            <svg
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-gray-500"
+              width="10" height="10" viewBox="0 0 10 10"
+              fill="none" stroke="currentColor" strokeWidth="1.5"
+              strokeLinecap="round" strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M2 3.5L5 6.5L8 3.5" />
+            </svg>
+          </div>
+
           <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">RAG</span>
         </div>
       </div>
@@ -155,7 +200,7 @@ export default function Home() {
           </button>
         </div>
         <p className="text-xs text-gray-400 mt-2 text-center">
-          For medical emergencies, always call 911 · This is first aid guidance only
+          For medical emergencies, always call {region.emergency} · This is first aid guidance only
         </p>
       </div>
 
