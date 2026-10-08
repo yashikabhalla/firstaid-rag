@@ -101,7 +101,10 @@ async function semanticOnlyRetrieve(query) {
   const topScore = results.matches[0]?.score ?? 0;
   if (topScore < MIN_CONFIDENCE) return [];
 
-  return results.matches.map((match) => match.id);
+  return results.matches.map((match) => ({
+    id: match.id,
+    score: match.score,
+  }));
 }
 
 /**
@@ -134,7 +137,10 @@ async function hybridRetrieve(query) {
     topK: 3,
   });
 
-  return results.map((r) => r.id);
+  return results.map((r) => ({
+  id: r.id,
+  score: r.score,
+}));
 }
 
 // -----------------------------------------------------------------------
@@ -142,13 +148,31 @@ async function hybridRetrieve(query) {
 // -----------------------------------------------------------------------
 async function runEval(retrieveFn, label) {
   let correct = 0;
+  let confidentWrong = 0;
   const failures = [];
 
   for (const { query, expectedId } of TEST_QUESTIONS) {
-    const topIds = await retrieveFn(query);
+    const results = await retrieveFn(query);
+
+    const topIds = results.map((result) => result.id);
+
     const hit = expectedId === null
       ? topIds.length === 0
       : topIds.includes(expectedId);
+
+    // Safety check:
+    // If we expected NO result, but retrieval returned a result
+    // with a score >= MIN_CONFIDENCE, the system found a
+    // confident but unexpected match.
+    if (!hit && results.length > 0) {
+  const highestScore = Math.max(
+    ...results.map((result) => result.score)
+  );
+
+  if (highestScore >= MIN_CONFIDENCE) {
+    confidentWrong++;
+  }
+} 
 
     if (hit) {
       correct++;
@@ -158,14 +182,20 @@ async function runEval(retrieveFn, label) {
   }
 
   const accuracy = ((correct / TEST_QUESTIONS.length) * 100).toFixed(1);
+
   console.log(`\n=== ${label} ===`);
   console.log(`Accuracy: ${correct}/${TEST_QUESTIONS.length} (${accuracy}%)`);
+  console.log(`Confident wrong: ${confidentWrong}`);
+
   if (failures.length) {
     console.log("Failed cases (look for patterns here — this is your interview insight):");
     failures.forEach((f) =>
-      console.log(`  - "${f.query}" | expected: ${f.expectedId} | got: [${f.got.join(", ")}]`)
+      console.log(
+        `  - "${f.query}" | expected: ${f.expectedId} | got: [${f.got.join(", ")}]`
+      )
     );
   }
+
   return accuracy;
 }
 
