@@ -8,6 +8,7 @@ import Groq from 'groq-sdk'
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
 const MIN_CONFIDENCE = 0.55
+const SOURCE_SCORE_MARGIN = 0.15
 
 const EMERGENCY_KEYWORDS = [
   'heart attack', 'cardiac arrest', 'not breathing', 'no pulse',
@@ -58,13 +59,22 @@ export async function POST(request) {
       })
     }
 
-    const relevantDocs = searchResults.matches.map(match => ({
-      topic: match.metadata.topic,
-      content: applyRegion(match.metadata.content, region), // CHANGED (1): fills in {{EMERGENCY}} etc.
-      source: match.metadata.source,
-      sourceUrl: match.metadata.sourceUrl,
-      score: match.score
-    }))
+    const relevantDocs = searchResults.matches
+  .filter(match => {
+    const score = match.score ?? 0
+
+    return (
+      score >= MIN_CONFIDENCE &&
+      score >= topScore - SOURCE_SCORE_MARGIN
+    )
+  })
+  .map(match => ({
+    topic: match.metadata.topic,
+    content: applyRegion(match.metadata.content, region),
+    source: match.metadata.source,
+    sourceUrl: match.metadata.sourceUrl,
+    score: match.score
+  }))
 
     const context = relevantDocs.map((doc, i) =>
       `[Source ${i + 1}: ${doc.source}]\nTopic: ${doc.topic}\n${doc.content}`
@@ -102,10 +112,9 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
     return NextResponse.json({
       answer,
       sources: relevantDocs.map(doc => ({
-        topic: doc.topic,
-        source: doc.source,
-        sourceUrl: doc.sourceUrl,
-        relevanceScore: Math.round(doc.score * 100)
+      topic: doc.topic,
+      source: doc.source,
+      sourceUrl: doc.sourceUrl
       })),
       isEmergency,
       emergencyNumber: region.emergency, // CHANGED (3): so the banner shows the right number

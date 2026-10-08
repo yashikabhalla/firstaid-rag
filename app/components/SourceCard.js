@@ -20,13 +20,7 @@ export default function SourceCard({ source }) {
         </div>
       </div>
 
-      <div className="flex items-center gap-1">
-        <span className="text-xs text-blue-500 font-medium">
-          {source.relevanceScore}%
-        </span>
-
-        <span className="text-blue-400 text-xs">↗</span>
-      </div>
+      <span className="text-blue-400 text-xs">↗</span>
     </a>
   )
 }
