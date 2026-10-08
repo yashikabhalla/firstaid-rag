@@ -3,6 +3,7 @@ import { getRegion, applyRegion } from '@/lib/region'
 import { createEmbedding } from '@/lib/embeddings'
 import { getPineconeIndex } from '@/lib/pinecone'
 import { isCrisisQuery, getCrisisResponse } from '@/lib/safety'
+import { isEmergencyQuery } from '@/lib/emergency'
 import Groq from 'groq-sdk'
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
@@ -10,17 +11,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 const MIN_CONFIDENCE = 0.55
 const SOURCE_SCORE_MARGIN = 0.15
 
-const EMERGENCY_KEYWORDS = [
-  'heart attack', 'cardiac arrest', 'not breathing', 'no pulse',
-  'chest pain', 'stroke', 'unconscious', 'unresponsive', 'anaphylaxis',
-  'severe bleeding', 'choking', 'drowning', 'overdose', 'poisoning',
-  'seizure', 'stopped breathing', 'no heartbeat', 'collapsed'
-]
 
-function checkEmergency(text) {
-  const lower = text.toLowerCase()
-  return EMERGENCY_KEYWORDS.some(keyword => lower.includes(keyword))
-}
 
 export async function POST(request) {
   try {
@@ -35,7 +26,7 @@ export async function POST(request) {
        return NextResponse.json(getCrisisResponse(regionCode))
     }
 
-    const isEmergency = checkEmergency(message)
+    const isEmergency = isEmergencyQuery(message)
 
     const queryEmbedding = await createEmbedding(message)
     const index = await getPineconeIndex()
@@ -83,7 +74,9 @@ export async function POST(request) {
     const systemPrompt = `You are a first aid assistant that provides accurate, helpful first aid guidance.
 
 IMPORTANT RULES:
-- Only use the provided medical sources to answer questions
+- Only use the verified medical information retrieved by the system to answer questions
+- Never say or imply that the user provided, uploaded, or supplied the medical sources
+- If the available information does not directly answer the user's question, clearly say that specific guidance was not found in the verified sources
 - Always mention the source of your information
 - If the question is not related to first aid or medical emergencies, politely redirect
 - Always recommend seeking professional medical help for serious conditions
@@ -108,6 +101,9 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
     })
 
     const answer = completion.choices[0].message.content
+      .replaceAll('the verified sources you provided', 'the verified sources available to me')
+      .replaceAll('the sources you provided', 'the sources available to me')
+      .replaceAll('sources you provided', 'sources available to me')
 
     return NextResponse.json({
       answer,
