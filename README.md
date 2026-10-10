@@ -289,7 +289,7 @@ The evaluation uses the production confidence threshold of `0.55`.
 
 ---
 
-## 105-Question Benchmark
+## 105-query Benchmark
 
 The latest benchmark contains **105 questions**.
 
@@ -347,7 +347,7 @@ The project also includes a smaller development regression set containing **23 q
 | Abstentions | 34.8% (8/23) |
 | Confidently Incorrect | 1 |
 
-The development set is retained as a regression check, while the 105-question benchmark is the larger headline evaluation.
+The development set is retained as a regression check, while the 105-query benchmark is the larger headline evaluation.
 
 ---
 
@@ -406,8 +406,17 @@ This allows urgent crisis-related requests to bypass the normal generation pipel
 
 ### Emergency Path
 
+Emergency detection runs before normal retrieval and identifies potentially life-threatening situations.
+
+When an emergency is detected:
+
+- The application marks the request as an emergency.
+- The region-specific emergency number is included in the response.
+- The LLM is instructed to prioritize urgent emergency guidance.
+- The normal RAG pipeline continues so the response can include relevant first-aid information.
+
 ```text
-User Question
+User Query
      |
      v
 Emergency Detection
@@ -415,8 +424,19 @@ Emergency Detection
      v
 Emergency Detected
      |
+     +----> Emergency instruction + regional emergency number
+     |
      v
-Emergency Response
+Semantic Retrieval
+     |
+     v
+Confidence Gate
+     |
+     v
+Groq LLM
+     |
+     v
+Answer + Emergency Information
 ```
 
 Emergency responses include the region-specific emergency number.
@@ -534,7 +554,8 @@ firstaid-rag/
 │   ├── hybridSearch.js
 │   ├── pinecone.js
 │   ├── region.js
-│   └── safety.js
+│   ├── safety.js
+│   └── tfidf.js
 │
 ├── scripts/
 │   ├── evalQuestions.mjs
@@ -544,8 +565,6 @@ firstaid-rag/
 │   └── uploadData.mjs
 │
 ├── public/
-│
-├── app/
 │
 ├── package.json
 ├── package-lock.json
@@ -669,7 +688,7 @@ The evaluation includes:
 
 - Development regression questions
 - Held-out smoke-test questions
-- 105-question benchmark
+- 105-query benchmark
 - Semantic retrieval
 - Hybrid retrieval
 - Top-1 accuracy
@@ -743,7 +762,7 @@ The rule-based safety layer provides deterministic routing for known emergency a
 
 The project includes a hybrid semantic + keyword retrieval experiment to evaluate whether lexical matching could improve retrieval for queries containing specific medical terms.
 
-On the 105-question benchmark, however, the hybrid approach did not outperform the semantic baseline.
+On the 105-query benchmark, however, the hybrid approach did not outperform the semantic baseline.
 
 This demonstrates an important engineering principle:
 
