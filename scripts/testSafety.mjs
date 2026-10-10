@@ -29,6 +29,15 @@ const shouldTrigger = [
   "jeene ka man nahi hai",
   "mujhe apni jaan deni hai",
   "main sab khatam karna chahti hoon",
+  "I am killing myself slowly and want to stop",
+  "I keep thinking about ending it all",
+  "I have been thinking about taking my own life",
+  "I am thinking about suicide. What are the warning signs of suicide?",
+  "I want to die, how to prevent suicide",
+  "I am suicidal",
+  "I cut myself on purpose again",
+  "mujhe khudkushi ke khayal aa rahe hain",
+  "मुझे आत्महत्या के ख्याल आ रहे हैं",
 ]
 
 const shouldNotTrigger = [
@@ -50,6 +59,13 @@ const shouldNotTrigger = [
   "My friend has a headache",
   "How do I help someone who fainted?",
   "What should I do if someone is choking?",
+  "I fell off my bike and hurt myself, my ankle is swollen",
+  "I hurt myself lifting weights, my back is sore",
+  "I cut myself while chopping onions",
+  "I burned myself on the stove",
+  "I want to cut myself a slice of cake",
+  "I cannot go on this hike, my ankle is sprained",
+  "my son hurt himself playing football",
 ]
 
 let passed = 0

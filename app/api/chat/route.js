@@ -11,19 +11,21 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 const MIN_CONFIDENCE = 0.55
 const SOURCE_SCORE_MARGIN = 0.15
 
-
-
 export async function POST(request) {
   try {
-    const { message, region: regionCode = 'IN' } = await request.json()
-    const region = getRegion(regionCode)  
-    if (!message || message.trim() === '') {
+    const { message, region: regionCode } = await request.json()
+
+    if (typeof message !== 'string' || message.trim() === '') {
       return NextResponse.json({ error: 'Message is required' }, { status: 400 })
     }
 
+    // The region comes from the browser, so getRegion() validates it and
+    // falls back to India for anything unknown.
+    const region = getRegion(regionCode)
 
+    // Crisis messages skip embedding, retrieval and the LLM entirely.
     if (isCrisisQuery(message)) {
-       return NextResponse.json(getCrisisResponse(regionCode))
+      return NextResponse.json(getCrisisResponse(region.code))
     }
 
     const isEmergency = isEmergencyQuery(message)
@@ -50,22 +52,19 @@ export async function POST(request) {
       })
     }
 
+    // Only use matches that are confident AND close to the best match.
     const relevantDocs = searchResults.matches
-  .filter(match => {
-    const score = match.score ?? 0
-
-    return (
-      score >= MIN_CONFIDENCE &&
-      score >= topScore - SOURCE_SCORE_MARGIN
-    )
-  })
-  .map(match => ({
-    topic: match.metadata.topic,
-    content: applyRegion(match.metadata.content, region),
-    source: match.metadata.source,
-    sourceUrl: match.metadata.sourceUrl,
-    score: match.score
-  }))
+      .filter(match => {
+        const score = match.score ?? 0
+        return score >= MIN_CONFIDENCE && score >= topScore - SOURCE_SCORE_MARGIN
+      })
+      .map(match => ({
+        topic: match.metadata.topic,
+        content: applyRegion(match.metadata.content, region),
+        source: match.metadata.source,
+        sourceUrl: match.metadata.sourceUrl,
+        score: match.score
+      }))
 
     const context = relevantDocs.map((doc, i) =>
       `[Source ${i + 1}: ${doc.source}]\nTopic: ${doc.topic}\n${doc.content}`
@@ -86,7 +85,6 @@ IMPORTANT RULES:
 ${isEmergency ? `🚨 EMERGENCY DETECTED: Start your response with "**CALL ${region.emergency} IMMEDIATELY**".` : ''}
 
 MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guidance only and professional medical help should be sought for serious conditions.`
-    // CHANGED (2): the emergency-number rule line, and the emergency line now uses ${region.emergency}
 
     const userPrompt = `Question: ${message}\n\nRelevant medical information from verified sources:\n\n${context}\n\nPlease provide clear first aid guidance based on the above sources.`
 
@@ -108,12 +106,12 @@ MEDICAL DISCLAIMER: Always end with a brief reminder that this is first aid guid
     return NextResponse.json({
       answer,
       sources: relevantDocs.map(doc => ({
-      topic: doc.topic,
-      source: doc.source,
-      sourceUrl: doc.sourceUrl
+        topic: doc.topic,
+        source: doc.source,
+        sourceUrl: doc.sourceUrl
       })),
       isEmergency,
-      emergencyNumber: region.emergency, // CHANGED (3): so the banner shows the right number
+      emergencyNumber: region.emergency,
       model: 'openai/gpt-oss-120b'
     })
 

@@ -20,6 +20,15 @@ const shouldTrigger = [
   "Someone overdosed",
   "My child swallowed poison and is very sick",
   "I think my dad is having a stroke",
+    // Emergencies that contain "what is/are", "prevent" or "food poisoning"
+  "someone is choking, what are the steps?",
+  "what do I do, my dad is unconscious",
+  "what is happening, he is not breathing",
+  "what are the steps for someone who has collapsed and has no pulse",
+  "my friend has food poisoning and is now unconscious",
+  "he is having a seizure, how do I prevent him from hurting himself",
+  "what should I do my baby is choking",
+  "my father has chest pain, what are the symptoms of a heart attack",
 ]
 
 const shouldNotTrigger = [
@@ -39,6 +48,9 @@ const shouldNotTrigger = [
   "What is the treatment for a minor burn?",
   "How do I help someone who fainted?",
   "What should I do to prevent a seizure?",
+  "Signs of a heart attack",
+  "How to prevent a stroke",
+  "I have food poisoning, what should I eat",
 ]
 
 let passed = 0
